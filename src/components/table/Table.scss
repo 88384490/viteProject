@@ -1,0 +1,17 @@
+@import "../../Common.scss";
+.el-table {
+  text-align: center;
+  th, td {
+    padding: 0 !important;
+  }
+}
+.button-group {
+  margin-bottom: 10px;
+}
+.selection {
+  display: inline-flex;
+  th > .cell {
+    display: inline-flex !important;
+    justify-content: center !important;
+  }
+}
