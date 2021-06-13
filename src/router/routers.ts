@@ -20,10 +20,10 @@ const routers: RouteRecordRaw[] = [
     component: () => import("../views/Table.vue"),
   },
   {
-    path: "/user",
-    name: "User",
+    path: "/form",
+    name: "form",
     meta: {
-      title: "用户管理",
+      title: "表单",
     },
     component: () => import("../views/Form.vue"),
   },
@@ -34,6 +34,14 @@ const routers: RouteRecordRaw[] = [
       title: "Tab选项",
     },
     component: () => import("../views/Tab.vue"),
+  },
+  {
+    path: "/user",
+    name: "User",
+    meta: {
+      title: "用户管理",
+    },
+    component: () => import("../views/User.vue"),
   },
 ];
 
