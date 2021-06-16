@@ -2,8 +2,8 @@
   <div :style="{ padding: '20px' }">
     <div class="button-group">
       <el-button-group>
-        <el-button size="mini" class="add-btn">新增</el-button>
-        <el-button size="mini" class="del-btn">批量删除</el-button>
+        <el-button size="mini" @click="handleAdd">新增</el-button>
+        <el-button size="mini">批量删除</el-button>
         <el-button size="mini">批量启动</el-button>
         <el-button size="mini">批量停用</el-button>
       </el-button-group>
@@ -27,6 +27,7 @@
 
 <script lang="ts">
 import { defineComponent, reactive, ref } from "vue";
+import { useRouter } from "vue-router";
 import MyTable from "@/components/table/Table.vue";
 import { PaginationProp } from "@/store/interface/Pagination";
 
@@ -35,13 +36,18 @@ export default defineComponent({
   components: {
     MyTable,
   },
-  setup() {
+  async setup() {
+    const { push: routerPush } = useRouter();
     const myTable = ref(null);
     const data = ref([]);
     const columns = ref([
       {
         label: "用户",
         prop: "userName1",
+      },
+      {
+        label: "角色",
+        prop: "role",
       },
       {
         label: "注册时间",
@@ -70,6 +76,9 @@ export default defineComponent({
         const table = myTable.value as any;
         table.clearSelection();
       },
+      handleAdd() {
+        console.log("add");
+      },
     };
     const datas = {
       data,
@@ -84,4 +93,8 @@ export default defineComponent({
 });
 </script>
 
-<style lang="less" scoped></style>
+<style lang="scss" scoped>
+.button-group {
+  margin-bottom: 10px;
+}
+</style>

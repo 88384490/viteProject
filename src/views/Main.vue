@@ -15,7 +15,8 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from "vue";
+import { computed, defineComponent, onMounted, ref } from "vue";
+import { useRoute } from "vue-router";
 import Header from "@/components/header/index.vue";
 import AsideItem from "@/components/aside/AsideItem.vue";
 
@@ -24,6 +25,17 @@ export default defineComponent({
   components: {
     Header,
     AsideItem,
+  },
+  setup() {
+    const route = useRoute();
+
+    const notFound = computed(() => {
+      return route;
+    });
+
+    onMounted(() => {
+      console.log(route);
+    });
   },
 });
 </script>
