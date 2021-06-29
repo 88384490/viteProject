@@ -2,7 +2,7 @@ import { RouteRecordRaw } from "vue-router";
 
 const routers: RouteRecordRaw[] = [
   {
-    path: "/home",
+    path: "",
     name: "Home",
     meta: {
       title: "首页",
@@ -16,8 +16,19 @@ const routers: RouteRecordRaw[] = [
     meta: {
       title: "数据表格",
       icon: "el-icon-s-order",
+      roles: ["ADMINISTRATOR", "USER_ADMINISTRATOR"],
     },
     component: () => import("../views/Table.vue"),
+  },
+  {
+    path: "/user",
+    name: "User",
+    meta: {
+      title: "用户管理",
+      icon: "el-icon-user-solid",
+      role: ["ADMINISTRATOR", "USER_ADMINISTRATOR"],
+    },
+    component: () => import("../views/User.vue"),
   },
 ];
 

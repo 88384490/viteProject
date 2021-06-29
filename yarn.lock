@@ -1589,10 +1589,10 @@
   optionalDependencies:
     prettier "^1.18.2"
 
-"@vue/devtools-api@^6.0.0-beta.10", "@vue/devtools-api@^6.0.0-beta.11":
-  version "6.0.0-beta.13"
-  resolved "https://registry.nlark.com/@vue/devtools-api/download/@vue/devtools-api-6.0.0-beta.13.tgz#ff31e552ae3e99b5f2c0af0ca81f0889dbfb2155"
-  integrity sha1-/zHlUq4+mbXywK8MqB8Iidv7IVU=
+"@vue/devtools-api@^6.0.0-beta.11", "@vue/devtools-api@^6.0.0-beta.14":
+  version "6.0.0-beta.15"
+  resolved "https://registry.nlark.com/@vue/devtools-api/download/@vue/devtools-api-6.0.0-beta.15.tgz?cache=0&sync_timestamp=1624900801887&other_urls=https%3A%2F%2Fregistry.nlark.com%2F%40vue%2Fdevtools-api%2Fdownload%2F%40vue%2Fdevtools-api-6.0.0-beta.15.tgz#ad7cb384e062f165bcf9c83732125bffbc2ad83d"
+  integrity sha1-rXyzhOBi8WW8+cg3MhJb/7wq2D0=
 
 "@vue/eslint-config-prettier@^6.0.0":
   version "6.0.0"
@@ -9201,11 +9201,11 @@ vue-loader@^15.9.2:
     vue-style-loader "^4.1.0"
 
 vue-router@^4.0.0-0:
-  version "4.0.8"
-  resolved "https://registry.nlark.com/vue-router/download/vue-router-4.0.8.tgz?cache=0&sync_timestamp=1620899536020&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fvue-router%2Fdownload%2Fvue-router-4.0.8.tgz#55d4290a3122444edbc91a3cd2492bb1d0cef494"
-  integrity sha1-VdQpCjEiRE7byRo80kkrsdDO9JQ=
+  version "4.0.10"
+  resolved "https://registry.nlark.com/vue-router/download/vue-router-4.0.10.tgz#ec8fda032949b2a31d3273170f8f376e86eb52ac"
+  integrity sha1-7I/aAylJsqMdMnMXD483bobrUqw=
   dependencies:
-    "@vue/devtools-api" "^6.0.0-beta.10"
+    "@vue/devtools-api" "^6.0.0-beta.14"
 
 vue-style-loader@^4.1.0, vue-style-loader@^4.1.2:
   version "4.1.3"
@@ -9230,9 +9230,9 @@ vue@^3.0.0:
     "@vue/shared" "3.1.1"
 
 vuex@^4.0.0-0:
-  version "4.0.1"
-  resolved "https://registry.nlark.com/vuex/download/vuex-4.0.1.tgz?cache=0&sync_timestamp=1621869031964&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fvuex%2Fdownload%2Fvuex-4.0.1.tgz#e83c541d6f31173969efabb2c5d1c465b682887e"
-  integrity sha1-6DxUHW8xFzlp76uyxdHEZbaCiH4=
+  version "4.0.2"
+  resolved "https://registry.nlark.com/vuex/download/vuex-4.0.2.tgz#f896dbd5bf2a0e963f00c67e9b610de749ccacc9"
+  integrity sha1-+Jbb1b8qDpY/AMZ+m2EN50nMrMk=
   dependencies:
     "@vue/devtools-api" "^6.0.0-beta.11"
 

@@ -44,6 +44,10 @@ export default defineComponent({
         prop: "userName1",
       },
       {
+        label: "角色",
+        prop: "role",
+      },
+      {
         label: "注册时间",
         prop: "createTime",
       },

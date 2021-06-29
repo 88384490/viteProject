@@ -1,4 +1,11 @@
-import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
+import {
+  createRouter,
+  createWebHistory,
+  NavigationFailure,
+  RouteLocationNormalized,
+  Router,
+  RouteRecordRaw,
+} from "vue-router";
 import children from "./routers";
 
 const routes: RouteRecordRaw[] = [
@@ -6,18 +13,28 @@ const routes: RouteRecordRaw[] = [
     path: "/",
     name: "Main",
     component: () => import("../views/Main.vue"),
-    children: children,
+    children,
+  },
+  {
+    path: "/:pathMatch(.*)*",
+    name: "NotFound",
+    component: () => import("../components/error/NotFound.vue"),
   },
 ];
 
-const router = createRouter({
+const router: Router = createRouter({
   history: createWebHistory(),
   routes,
 });
 
 router.beforeEach((to, from, next) => {
-  if (to.path === "/") next({ path: "/home" });
-  else next();
+  next();
 });
+
+router.afterEach(
+  (to: RouteLocationNormalized, from: RouteLocationNormalized) => {
+    document.title = (to.meta as any).title;
+  }
+);
 
 export default router;
