@@ -1,12 +1,11 @@
 <template>
-  <el-menu :router="true" :default-active="defaultPath">
+  <el-menu :default-active="defaultPath" @select="handleSelect">
     <slot name="container" />
   </el-menu>
 </template>
 
 <script lang="ts">
 import { defineComponent, toRefs } from "vue";
-import { useRouter } from "vue-router";
 
 export default defineComponent({
   name: "Menu",
@@ -16,12 +15,10 @@ export default defineComponent({
       required: false,
     },
   },
-  setup(props) {
-    const router = useRouter();
+  setup(props, context) {
     const { defaultPath = "/home" } = toRefs(props);
-    const handleSelect = (index: string, indexPath: string) => {
-      console.log(index, indexPath);
-      router.push("/home");
+    const handleSelect = (path: string, pathArr: string) => {
+      context.emit("selectedPath", path);
     };
     return { defaultPath, handleSelect };
   },

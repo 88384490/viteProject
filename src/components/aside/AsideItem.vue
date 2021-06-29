@@ -1,5 +1,9 @@
 <template>
-  <Menu class="menu" :defaultPath="defaultPath">
+  <Menu
+    class="menu"
+    :defaultPath="defaultPath"
+    @selectedPath="handleSelectRoute"
+  >
     <template v-slot:container>
       <template v-for="item in menuList" :key="item.path">
         <MenuItem
@@ -18,7 +22,12 @@ import { defineComponent, computed } from "vue";
 import Menu from "@/components/aside/Menu.vue";
 import MenuItem from "@/components/aside/MenuItem.vue";
 import menus from "@/router/routers";
-import { useRoute, useRouter } from "vue-router";
+import {
+  Router,
+  RouteLocationNormalizedLoaded,
+  useRoute,
+  useRouter,
+} from "vue-router";
 
 export default defineComponent({
   name: "AsideItem",
@@ -27,8 +36,8 @@ export default defineComponent({
     MenuItem,
   },
   setup() {
-    const router = useRouter();
-    const route = useRoute();
+    const router: Router = useRouter();
+    const route: RouteLocationNormalizedLoaded = useRoute();
     const menuList = menus;
     const defaultPath = computed(() => {
       return route.path;
@@ -42,11 +51,16 @@ export default defineComponent({
       return item.meta && !item.meta.hidden;
     };
 
+    const handleSelectRoute = (path: string) => {
+      router.push({ path: path });
+    };
+
     return {
       menuList,
       defaultPath,
       transformTitle,
       hasHidden,
+      handleSelectRoute,
     };
   },
 });
