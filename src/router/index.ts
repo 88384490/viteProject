@@ -1,10 +1,10 @@
+import { IRouterItem } from "./interface";
 import {
   createRouter,
   createWebHistory,
-  NavigationFailure,
   RouteLocationNormalized,
-  Router,
   RouteRecordRaw,
+  Router,
 } from "vue-router";
 import children from "./routers";
 
@@ -13,7 +13,7 @@ const routes: RouteRecordRaw[] = [
     path: "/",
     name: "Main",
     component: () => import("../views/Main.vue"),
-    children,
+    children: children as any,
   },
   {
     path: "/:pathMatch(.*)*",

@@ -1,5 +1,5 @@
 <template>
-  <el-menu-item :index="path" :disabled="disabled">
+  <el-menu-item :index="path">
     <template #title>
       <i v-if="icon" :class="icon" />
       <span>{{ menuName }}</span>
@@ -8,7 +8,8 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, onMounted, toRefs } from "vue";
+import { defineComponent, onMounted, onUpdated, toRefs } from "vue";
+import { useRoute } from "vue-router";
 
 export default defineComponent({
   name: "MenuItem",
@@ -31,6 +32,7 @@ export default defineComponent({
     },
   },
   setup(props) {
+    const route = useRoute();
     const {
       menuName = "",
       path = "",
@@ -38,11 +40,16 @@ export default defineComponent({
       disabled = false,
     }: unknown | any = toRefs(props);
 
+    onUpdated(() => {
+      console.log(path);
+    });
+
     return {
       menuName,
       path,
       icon,
       disabled,
+      route,
     };
   },
 });

@@ -1,4 +1,4 @@
-const path = require("path");
+import * as path from "path";
 const { resolve, join } = path;
 module.exports = {
   assetsDir: "static",
@@ -9,5 +9,6 @@ module.exports = {
         "@": resolve(__dirname, "src"),
       },
     },
+    devtool: "source-map",
   },
 };

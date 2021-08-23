@@ -1,5 +1,5 @@
 <template>
-  <el-menu :default-active="defaultPath" @select="handleSelect">
+  <el-menu :router="true" :default-active="defaultPath" @select="handleSelect">
     <slot name="container" />
   </el-menu>
 </template>

@@ -1,6 +1,6 @@
-import { RouteRecordRaw } from "vue-router";
+import { IRouterItem } from "./interface";
 
-const routers: RouteRecordRaw[] = [
+const routers: Partial<IRouterItem>[] = [
   {
     path: "",
     name: "Home",
@@ -26,7 +26,7 @@ const routers: RouteRecordRaw[] = [
     meta: {
       title: "用户管理",
       icon: "el-icon-user-solid",
-      role: ["ADMINISTRATOR", "USER_ADMINISTRATOR"],
+      roles: ["ADMINISTRATOR", "USER_ADMINISTRATOR"],
     },
     component: () => import("../views/User.vue"),
   },

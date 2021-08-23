@@ -1,9 +1,5 @@
 <template>
-  <Menu
-    class="menu"
-    :defaultPath="defaultPath"
-    @selectedPath="handleSelectRoute"
-  >
+  <Menu class="menu" :defaultPath="defaultPath">
     <template v-slot:container>
       <template v-for="item in menuList" :key="item.path">
         <MenuItem
@@ -38,7 +34,7 @@ export default defineComponent({
   setup() {
     const router: Router = useRouter();
     const route: RouteLocationNormalizedLoaded = useRoute();
-    const menuList = menus;
+    const menuList: any[] = menus;
     const defaultPath = computed(() => {
       return route.path;
     });
