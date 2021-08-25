@@ -1,18 +1,31 @@
 <template>
   <div class="home">
     <img alt="Vue logo" src="../assets/logo.png" />
+    <div id="chart"></div>
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from "vue";
-import HelloWorld from "@/components/HelloWorld.vue"; // @ is an alias to /src
+<script setup lang="ts">
+import { onUpdated, onMounted } from "vue";
+import { Echarts } from "@/plugins/echarts";
+let echarts: any | undefined = undefined;
 
-export default defineComponent({
-  components: {
-    HelloWorld,
-  },
+onMounted(() => {
+  console.log("mounted");
+  echarts = new Echarts();
+  renderChart();
 });
+
+onUpdated(() => {
+  console.log("updated");
+  console.log(echarts);
+});
+
+const renderChart = () => {
+  const el = document.querySelector("#chart");
+  const option = {};
+  echarts.useBarChart({ el });
+};
 </script>
 <style lang="scss">
 .home {

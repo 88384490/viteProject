@@ -26,7 +26,7 @@ export default defineComponent({
       window.location.reload();
     };
     const goHome = () => {
-      router.push("/home");
+      router.push("/");
     };
 
     return {
@@ -51,7 +51,7 @@ export default defineComponent({
   align-items: center;
 
   .search-input {
-    width: 150px;
+    width: 230px;
   }
 }
 </style>
