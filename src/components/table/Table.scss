@@ -4,6 +4,15 @@
   th, td {
     padding: 0 !important;
   }
+  .del-table-btn, .disabled-table-btn {
+    color: #F56C6B;
+  }
+  .edit-table-btn {
+    color: #409EFF;
+  }
+  .enable-table-btn {
+    color: #67C23A;
+  }
 }
 .button-group {
   margin-bottom: 10px;

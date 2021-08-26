@@ -9,8 +9,23 @@
       </el-button-group>
     </div>
     <MyTable :data="data" :columns="columns" ref="myTable">
-      <template v-slot:action>
-        <el-link size="mini" type="danger" @click="clear">222</el-link>
+      <template #action="{ item }">
+        <el-button class="del-table-btn" size="mini" type="text" @click="clear"
+          >删除</el-button
+        >
+        <el-button class="edit-table-btn" size="mini" type="text"
+          >编辑</el-button
+        >
+        <el-button
+          v-if="!item.row.enable"
+          class="enable-table-btn"
+          size="mini"
+          type="text"
+          >启动</el-button
+        >
+        <el-button v-else class="disabled-table-btn" size="mini" type="text"
+          >禁用</el-button
+        >
       </template>
       <template #pagination>
         <el-pagination
@@ -37,16 +52,32 @@ export default defineComponent({
   },
   setup(props, context: SetupContext) {
     const myTable = ref(null);
-    const data = ref([]);
+    const data = reactive([
+      {
+        name: "咩咩",
+        huyaId: "2222",
+        enabled: false,
+      },
+    ]);
     const columns = ref([
       {
-        label: "用户",
-        prop: "userName1",
+        label: "主播名",
+        prop: "name",
+      },
+      { label: "虎牙号", prop: "huyaId" },
+      {
+        label: "最后开播时间",
+        prop: "startTime",
+      },
+      {
+        label: "粉丝数量",
+        prop: "fanNumber",
       },
       {
         label: "操作",
         slot: true,
         name: "action",
+        width: 200,
       },
     ]);
     const pagination: PaginationProp = reactive({

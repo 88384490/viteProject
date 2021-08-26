@@ -25,67 +25,37 @@
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent, reactive, ref } from "vue";
+<script setup lang="ts">
+import { reactive, ref } from "vue";
 import MyTable from "@/components/table/Table.vue";
-import { PaginationProp } from "@/store/interface/Pagination";
+import { PaginationProp } from "@/store/interface";
 
-export default defineComponent({
-  name: "User",
-  components: {
-    MyTable,
+let myTable = ref(null);
+let data = ref([]);
+let columns = ref([
+  { label: "用户", prop: "userName1" },
+  { label: "角色", prop: "role" },
+  { label: "注册时间", prop: "createTime" },
+  { label: "更新时间", prop: "updatedTime" },
+  {
+    label: "操作",
+    slot: true,
+    name: "action",
+    align: "right",
+    width: "150px",
   },
-  setup() {
-    const myTable = ref(null);
-    const data = ref([]);
-    const columns = ref([
-      {
-        label: "用户",
-        prop: "userName1",
-      },
-      {
-        label: "角色",
-        prop: "role",
-      },
-      {
-        label: "注册时间",
-        prop: "createTime",
-      },
-      {
-        label: "更新时间",
-        prop: "updatedTime",
-      },
-      {
-        label: "操作",
-        slot: true,
-        name: "action",
-        align: "right",
-        width: "150px",
-      },
-    ]);
-    const pagination: PaginationProp = reactive({
-      size: 20,
-      total: 100,
-      currentPage: 5,
-      layout: "prev, pager, next, sizes, jumper, ->, total",
-    });
-    const methods = {
-      clear() {
-        const table = myTable.value as any;
-        table.clearSelection();
-      },
-    };
-    const datas = {
-      data,
-      columns,
-    };
-    return {
-      pagination,
-      ...methods,
-      ...datas,
-    };
-  },
+]);
+const pagination: PaginationProp = reactive({
+  size: 20,
+  total: 100,
+  currentPage: 5,
+  layout: "prev, pager, next, sizes, jumper, ->, total",
 });
+
+const clear = () => {
+  const table = myTable as any;
+  table.clearSelection();
+};
 </script>
 
 <style lang="less" scoped></style>

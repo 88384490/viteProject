@@ -11,14 +11,14 @@ const routers: Partial<IRouterItem>[] = [
     component: () => import("../views/Home.vue"),
   },
   {
-    path: "/table",
-    name: "Table",
+    path: "/anchor",
+    name: "Anchor",
     meta: {
-      title: "数据表格",
-      icon: "el-icon-s-order",
+      title: "主播列表",
+      icon: "el-icon-user-solid",
       roles: ["ADMINISTRATOR", "USER_ADMINISTRATOR"],
     },
-    component: () => import("../views/Table.vue"),
+    component: () => import("../views/Anchor.vue"),
   },
   {
     path: "/user",

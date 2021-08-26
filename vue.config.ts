@@ -1,5 +1,5 @@
 import * as path from "path";
-const { resolve, join } = path;
+const { resolve } = path;
 module.exports = {
   assetsDir: "static",
   runtimeCompiler: true,
@@ -9,6 +9,12 @@ module.exports = {
         "@": resolve(__dirname, "src"),
       },
     },
+    plugins: [
+      NormalModuleReplacementPlugin(
+        /element-plus[/\\]lib[/\\]locale[/\\]lang[/\\]en/,
+        "element-plus/lib/locale/lang/zh-cn"
+      ),
+    ],
     devtool: "source-map",
   },
 };
