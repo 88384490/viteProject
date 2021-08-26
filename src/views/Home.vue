@@ -1,19 +1,28 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <div id="chart"></div>
+    <img class="hidden" alt="Vue logo" src="../assets/logo.png" />
+    <div class="chart">
+      <div class="charts-container-1">
+        <div id="fan"></div>
+        <div id="follow"></div>
+      </div>
+      <div class="charts-container-2">
+        <div id="chat"></div>
+      </div>
+    </div>
   </div>
 </template>
 
 <script setup lang="ts">
 import { onUpdated, onMounted } from "vue";
-import { Echarts } from "@/plugins/echarts";
-let echarts: any | undefined = undefined;
+import * as echarts from "echarts";
+import { fanOptions, followOptions, chatOptions } from "./event/Home";
 
 onMounted(() => {
   console.log("mounted");
-  echarts = new Echarts();
-  renderChart();
+  initFan();
+  initFollow();
+  initChat();
 });
 
 onUpdated(() => {
@@ -21,18 +30,25 @@ onUpdated(() => {
   console.log(echarts);
 });
 
-const renderChart = () => {
-  const el = document.querySelector("#chart");
-  const option = {};
-  echarts.useBarChart({ el });
+const log = (message: any) => {
+  console.log(message);
+};
+const initFan = () => {
+  const el = document.querySelector("#fan") as HTMLElement;
+  const fanChart = echarts.init(el);
+  fanChart.setOption(fanOptions);
+};
+const initFollow = () => {
+  const el = document.querySelector("#follow") as HTMLElement;
+  const followChart = echarts.init(el);
+  followChart.setOption(followOptions);
+};
+const initChat = () => {
+  const el = document.querySelector("#chat") as HTMLElement;
+  const chatChart = echarts.init(el);
+  chatChart.setOption(chatOptions);
 };
 </script>
 <style lang="scss">
-.home {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+@import "../assets/style/Home.scss";
 </style>

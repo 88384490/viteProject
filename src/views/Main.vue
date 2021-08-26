@@ -1,5 +1,5 @@
 <template>
-  <el-container style="height: 100%" direction="vertical">
+  <el-container :style="{ height: height + 'px' }" direction="vertical">
     <el-header>
       <Header />
     </el-header>
@@ -14,18 +14,12 @@
   </el-container>
 </template>
 
-<script lang="ts">
-import { defineComponent, ref } from "vue";
+<script setup lang="ts">
 import Header from "@/components/header/index.vue";
 import AsideItem from "@/components/aside/AsideItem.vue";
-
-export default defineComponent({
-  name: "Main",
-  components: {
-    Header,
-    AsideItem,
-  },
-});
+import { onMounted } from "vue";
+const height =
+  (document.querySelector("#app") as HTMLElement).clientHeight - 20;
 </script>
 
 <style lang="scss" scoped>
@@ -40,8 +34,5 @@ export default defineComponent({
 }
 header.el-header {
   padding: 0;
-}
-section.container {
-  height: 100%;
 }
 </style>

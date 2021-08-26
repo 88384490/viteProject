@@ -1,0 +1,34 @@
+.home {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.hidden {
+  display: none !important;
+}
+.chart {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+}
+.charts-container-1,
+.charts-container-2 {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.charts-container-1 #fan,
+.charts-container-1 #follow,
+.charts-container-2 #chat {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}

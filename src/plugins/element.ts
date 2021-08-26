@@ -2,6 +2,7 @@ import ElementPlus, {
   ElAside,
   ElButton,
   ElButtonGroup,
+  ElCard,
   ElContainer,
   ElFooter,
   ElForm,
@@ -20,6 +21,7 @@ import ElementPlus, {
   ElNotification,
   ElPagination,
   ElSelect,
+  ElSpace,
   ElTable,
   ElTableColumn,
 } from "element-plus";
@@ -46,6 +48,8 @@ const elements = [
   ElLink,
   ElForm,
   ElFormItem,
+  ElSpace,
+  ElCard,
 ];
 const plugins = [
   ElInfiniteScroll,

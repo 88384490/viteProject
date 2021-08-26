@@ -31,10 +31,13 @@ class Echarts implements IEchartsItem {
   public useBarChart(options: IBarChartParam) {
     const { el } = options;
     this._chart.init(el);
-    return Echarts;
+    return this._chart;
   }
 
-  public setOptions(options: any) {}
+  public setOptions(options: any) {
+    this._chart.setOptions(options);
+    return this._chart;
+  }
 }
 
 export { Echarts };
