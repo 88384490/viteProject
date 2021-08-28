@@ -8,7 +8,12 @@
     style="width: 100%"
     size="mini"
   >
-    <el-table-column type="selection" width="55" align="center" />
+    <el-table-column
+      v-if="isMultiSel"
+      type="selection"
+      width="55"
+      align="center"
+    />
     <template v-for="(item, index) in columns" :key="index">
       <el-table-column
         :label="item.label"
@@ -65,13 +70,23 @@ export default defineComponent({
       required: false,
       default: true,
     },
+    height: { type: Number, required: false },
   },
   setup(props, { emit }) {
     const elTable = ref(null);
-    const { data, columns, loading } = toRefs(props);
-    const propItem = { data, columns, loading };
+    const { data, columns, loading, isMultiSel } = toRefs(props);
+    const propItem = {
+      data,
+      columns,
+      loading,
+      isMultiSel,
+    };
+
     const methods = {
       clearSelection: (): void => {
+        (elTable.value as any).clearSelection();
+      },
+      batchSelectAll: (): void => {
         (elTable.value as any).clearSelection();
       },
     };

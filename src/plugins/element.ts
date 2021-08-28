@@ -43,12 +43,12 @@ const elements = [
   ElInput,
   ElSelect,
   ElIcon,
-  ElPagination,
   ElLink,
   ElForm,
   ElFormItem,
   ElSpace,
   ElCard,
+  ElPagination,
 ];
 const plugins = [
   ElInfiniteScroll,
