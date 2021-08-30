@@ -3,6 +3,7 @@ interface IMetaItem {
   hidden?: boolean;
   icon?: string;
   roles?: string[];
+  search: boolean;
 }
 
 export interface IRouterItem {
@@ -11,4 +12,5 @@ export interface IRouterItem {
   meta?: IMetaItem;
   children?: IRouterItem[];
   component: any;
+  redirect?: string;
 }

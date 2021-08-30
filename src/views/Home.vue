@@ -1,13 +1,42 @@
 <template>
   <div class="home">
-    <img class="hidden" alt="Vue logo" src="../assets/logo.png" />
     <div class="chart">
+      <el-row justify="space-around" gutter="10">
+        <el-col
+          :span="24 / spanArr.length"
+          v-for="(item, index) in spanArr"
+          :key="index"
+        >
+          <el-card shadow="hover" class="box-card">
+            <span class="box-card-title">{{ item.name }}</span>
+            <span>{{ item.data }}</span>
+          </el-card>
+        </el-col>
+      </el-row>
       <div class="charts-container-1">
-        <div id="fan"></div>
-        <div id="follow"></div>
+        <el-row
+          :gutter="10"
+          justify="space-between"
+          style="width: 100%; height: 100%"
+        >
+          <el-col :span="12" style="padding-left: 0">
+            <div id="fan"></div>
+          </el-col>
+          <el-col :span="12" style="padding-right: 0">
+            <div id="follow"></div>
+          </el-col>
+        </el-row>
       </div>
       <div class="charts-container-2">
-        <div id="chat"></div>
+        <el-row
+          :gutter="10"
+          justify="space-between"
+          style="width: 100%; height: 100%"
+        >
+          <el-col :span="12" style="padding-left: 0">
+            <div id="chat"></div>
+          </el-col>
+        </el-row>
       </div>
     </div>
   </div>
@@ -30,6 +59,20 @@ onUpdated(() => {
   console.log(echarts);
 });
 
+const spanArr = [
+  {
+    name: "粉丝数",
+    data: 20,
+  },
+  {
+    name: "弹幕数",
+    data: 20,
+  },
+  {
+    name: "今日流水",
+    data: 20,
+  },
+];
 const log = (message: any) => {
   console.log(message);
 };

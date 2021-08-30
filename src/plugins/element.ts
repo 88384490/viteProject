@@ -24,10 +24,10 @@ import ElementPlus, {
   ElSpace,
   ElTable,
   ElTableColumn,
+  ElRow,
+  ElCol,
 } from "element-plus";
-import "../element-variables.scss";
-import lang from "element-plus/lib/locale/lang/zh-cn";
-import "dayjs/locale/zh-cn";
+
 const elements = [
   ElAside,
   ElMain,
@@ -49,6 +49,8 @@ const elements = [
   ElSpace,
   ElCard,
   ElPagination,
+  ElRow,
+  ElCol,
 ];
 const plugins = [
   ElInfiniteScroll,
@@ -57,6 +59,11 @@ const plugins = [
   ElMessageBox,
   ElNotification,
 ];
+import "/@/element-variables.scss";
+import "element-plus/dist/index.css";
+import "dayjs/locale/zh-cn";
+import "element-plus/dist/index.css";
+import "element-plus/theme-chalk/display.css";
 export default (app: any) => {
   elements.forEach((element) => {
     app.component(element.name, element);

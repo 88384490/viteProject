@@ -13,11 +13,13 @@ const routes: RouteRecordRaw[] = [
     path: "/",
     name: "Main",
     component: () => import("../views/Main.vue"),
+    meta: { title: "主页" },
     children: children as any,
   },
   {
     path: "/:pathMatch(.*)*",
     name: "NotFound",
+    meta: { title: "错误页面", icon: "el-icon-not-eleme" },
     component: () => import("../components/error/NotFound.vue"),
   },
 ];

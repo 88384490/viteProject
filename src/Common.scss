@@ -1,12 +1,48 @@
-@import "element-variables.scss";
-body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, form, fieldset, legend, input, textarea, p, blockquote, th, td, hr, button, article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+@import "./element-variables.scss";
+body,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+form,
+fieldset,
+legend,
+input,
+textarea,
+p,
+blockquote,
+th,
+td,
+hr,
+button,
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
   margin: 0;
   padding: 0;
 }
 
 /* 重置列表元素 */
 
-ul, ol {
+ul,
+ol {
   list-style: none;
 }
 
@@ -161,21 +197,32 @@ ul, ol {
   flex: 1 1 0;
 }
 
+.btn {
+  padding: $--btn-padding;
+}
+
 .add-btn {
   padding: $--btn-padding;
-  background-color: #7ED321;
-  border-color: #7ED321;
-  color: #ffffff;
+  background-color: $--primary;
+  border-color: $--primary;
+  color: $--white;
 }
 .del-btn {
   padding: $--btn-padding;
-  background-color: #FF1616;
-  border-color: #FF1616;
-  color: #ffffff;
+  background-color: $--danger;
+  border-color: $--danger;
+  color: $--white;
 }
 .enable-btn {
   padding: $--btn-padding;
-  background-color: #50E3C2;
-  border-color: #50E3C2;
-  color: #ffffff;
+  background-color: $--success;
+  border-color: $--success;
+  color: $--white;
+}
+
+.disabled-btn {
+  padding: $--btn-padding;
+  background-color: $--orange;
+  border-color: $--orange;
+  color: $--white;
 }

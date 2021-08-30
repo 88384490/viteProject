@@ -12,12 +12,11 @@
     </template>
   </Menu>
 </template>
-
 <script lang="ts">
 import { defineComponent, computed } from "vue";
-import Menu from "@/components/aside/Menu.vue";
-import MenuItem from "@/components/aside/MenuItem.vue";
-import menus from "@/router/routers";
+import Menu from "/@/components/aside/Menu.vue";
+import MenuItem from "/@/components/aside/MenuItem.vue";
+import menus from "../../router/routers";
 import {
   Router,
   RouteLocationNormalizedLoaded,
@@ -61,7 +60,6 @@ export default defineComponent({
   },
 });
 </script>
-
 <style lang="scss" scoped>
 .menu {
   height: 100%;

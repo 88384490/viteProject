@@ -3,12 +3,13 @@ const fanOptions: EChartsOption = {
   title: {
     text: "粉丝增长",
     left: "45%",
-    top: "8%",
+    top: "5%",
   },
   grid: {
     left: "10%",
     right: "5%",
     top: "20%",
+    bottom: "15%",
   },
   xAxis: {
     type: "category",
@@ -29,12 +30,13 @@ const followOptions: EChartsOption = {
   title: {
     text: "弹幕增长",
     left: "45%",
-    top: "8%",
+    top: "5%",
   },
   grid: {
-    left: "8%",
+    left: "10%",
     right: "5%",
     top: "20%",
+    bottom: "15%",
   },
   xAxis: {
     type: "category",
@@ -55,9 +57,11 @@ const chatOptions: EChartsOption = {
   title: {
     text: "弹幕排名",
     left: "45%",
+    top: "5%",
   },
   grid: {
     left: "13%",
+    bottom: "15%",
   },
   xAxis: {
     type: "category",

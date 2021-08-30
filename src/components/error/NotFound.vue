@@ -4,13 +4,12 @@
     <p>没有找到您需要的页面 {{ countDown }}秒后回到主页面</p>
   </div>
 </template>
-
 <script lang="ts">
 import { defineComponent, onMounted, ref, toRefs } from "vue";
 import { useRouter, useRoute } from "vue-router";
 
 export default defineComponent({
-  name: "index",
+  name: "Error",
   setup() {
     const router = useRouter();
     const { fullPath } = toRefs(useRoute());
@@ -42,5 +41,4 @@ export default defineComponent({
   },
 });
 </script>
-
-<style lang="less" scoped></style>
+<style></style>

@@ -4,6 +4,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 50px;
+  overflow-y: hidden;
 }
 .hidden {
   display: none !important;
@@ -13,22 +15,41 @@
   flex-direction: column;
   height: 100%;
   width: 100%;
+
+  .box-card {
+    text-align: center;
+    .box-card-title {
+      font-size: 30px;
+      color: #67C23A;
+    }
+    span {
+      display: block;
+    }
+  }
+
+  .charts-container-1 {
+    margin-top: 10px;
+    #fan, #follow {
+      border-radius: 4px;
+      border: 1px solid #ebeef5;
+      height: 250px;
+    }
+  }
+
+  .charts-container-2 {
+    #chat {
+      border-radius: 4px;
+      border: 1px solid #ebeef5;
+      width: 100%;
+      height: 250px;
+    }
+  }
 }
 .charts-container-1,
 .charts-container-2 {
-  height: 100%;
   width: 100%;
-  display: flex;
+  display: inline-flex;
   justify-content: center;
   align-items: center;
-}
-.charts-container-1 #fan,
-.charts-container-1 #follow,
-.charts-container-2 #chat {
-  height: 100%;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 10px;
+  margin-top: 10px;
 }

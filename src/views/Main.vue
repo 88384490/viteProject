@@ -1,9 +1,9 @@
 <template>
-  <el-container :style="{ height: height + 'px' }" direction="vertical">
+  <el-container class="main" direction="vertical">
     <el-header>
       <Header />
     </el-header>
-    <el-container class="container" direction="horizontal">
+    <el-container direction="horizontal">
       <el-aside class="shadow mr-10" width="200px">
         <AsideItem></AsideItem>
       </el-aside>
@@ -13,15 +13,15 @@
     </el-container>
   </el-container>
 </template>
-
 <script setup lang="ts">
-import Header from "@/components/header/index.vue";
-import AsideItem from "@/components/aside/AsideItem.vue";
-import { onMounted } from "vue";
-const height =
-  (document.querySelector("#app") as HTMLElement).clientHeight - 20;
+import Header from "/@/components/header/index.vue";
+import AsideItem from "/@/components/aside/AsideItem.vue";
+import { onMounted, onUpdated } from "vue";
+let height = (document.querySelector("#app") as HTMLElement).clientHeight - 20;
+onUpdated(function() {
+  height = (document.querySelector("#app") as HTMLElement).clientHeight - 20;
+});
 </script>
-
 <style lang="scss" scoped>
 .el-header,
 .el-container,
@@ -32,6 +32,12 @@ const height =
 .el-main {
   padding: 0;
 }
+.main {
+  height: 100%;
+}
+//.container {
+//  overflow-y: auto;
+//}
 header.el-header {
   padding: 0;
 }

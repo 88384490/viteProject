@@ -7,18 +7,20 @@ const routers: Partial<IRouterItem>[] = [
     meta: {
       title: "首页",
       hidden: true,
+      search: false,
     },
-    component: () => import("../views/Home.vue"),
+    component: () => import("/@/views/Home.vue"),
   },
   {
     path: "/anchor",
     name: "Anchor",
     meta: {
       title: "主播列表",
-      icon: "el-icon-user-solid",
+      icon: "el-icon-mic",
       roles: ["ADMINISTRATOR", "USER_ADMINISTRATOR"],
+      search: true,
     },
-    component: () => import("../views/Anchor.vue"),
+    component: () => import("/@/views/Anchor.vue"),
   },
   {
     path: "/user",
@@ -27,8 +29,19 @@ const routers: Partial<IRouterItem>[] = [
       title: "用户管理",
       icon: "el-icon-user-solid",
       roles: ["ADMINISTRATOR", "USER_ADMINISTRATOR"],
+      search: false,
     },
-    component: () => import("../views/User.vue"),
+    component: () => import("/@/views/User.vue"),
+  },
+  {
+    path: "/movie",
+    name: "movie",
+    meta: {
+      title: "电影片源",
+      icon: "el-icon-video-camera-solid",
+      search: true,
+    },
+    component: () => import("/@/views/Movie.vue"),
   },
 ];
 

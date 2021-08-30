@@ -1,17 +1,17 @@
 <template>
-  <transition name="el-fade">
-    <router-view />
-  </transition>
+  <el-config-provider :locale="local">
+    <transition name="el-fade">
+      <router-view />
+    </transition>
+  </el-config-provider>
 </template>
 
-<script>
-import { defineComponent } from "vue";
-
-export default defineComponent({
-  name: "app",
-});
+<script setup lang="ts">
+import { ElConfigProvider } from "element-plus";
+import zhCn from "element-plus/lib/locale/lang/zh-cn";
+const local = zhCn;
 </script>
+
 <style lang="scss">
 @import "App.scss";
-@import "Common.scss";
 </style>

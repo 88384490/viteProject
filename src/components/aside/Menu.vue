@@ -3,7 +3,6 @@
     <slot name="container" />
   </el-menu>
 </template>
-
 <script lang="ts">
 import { defineComponent, toRefs } from "vue";
 
@@ -24,5 +23,4 @@ export default defineComponent({
   },
 });
 </script>
-
-<style lang="less" scoped></style>
+<style></style>

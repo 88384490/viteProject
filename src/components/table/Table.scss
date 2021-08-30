@@ -1,21 +1,20 @@
 @import "../../Common.scss";
 .el-table {
   text-align: center;
-  th, td {
+  th,
+  td {
     padding: 0 !important;
   }
-  .del-table-btn, .disabled-table-btn {
-    color: #F56C6B;
+  .del-table-btn,
+  .disabled-table-btn {
+    color: #f56c6b;
   }
   .edit-table-btn {
-    color: #409EFF;
+    color: #409eff;
   }
   .enable-table-btn {
-    color: #67C23A;
+    color: #67c23a;
   }
-}
-.button-group {
-  margin-bottom: 10px;
 }
 .selection {
   display: inline-flex;

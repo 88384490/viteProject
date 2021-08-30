@@ -1,0 +1,16 @@
+#anchor {
+  padding: 20px;
+}
+.button-group {
+  margin-bottom: 15px;
+}
+.enable-status {
+  padding: 10px;
+  background-color: $--green;
+  color: $--white;
+}
+.disabled-status {
+  padding: 10px;
+  background-color: $--orange;
+  color: $--white;
+}

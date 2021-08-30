@@ -14,7 +14,7 @@
       width="55"
       align="center"
     />
-    <template v-for="(item, index) in columns" :key="index">
+    <template v-for="item in columns" :key="item.prop">
       <el-table-column
         :label="item.label"
         :prop="item.prop"
@@ -40,9 +40,8 @@
     <slot name="pagination" />
   </div>
 </template>
-
 <script lang="ts">
-import { defineComponent, ref, toRefs } from "vue";
+import { defineComponent, PropType, ref, toRefs } from "vue";
 
 export default defineComponent({
   name: "MyTable",
@@ -53,7 +52,7 @@ export default defineComponent({
       required: true,
     },
     columns: {
-      type: Array,
+      type: Array as PropType<any[]>,
       required: true,
     },
     isMultiSel: {
@@ -81,7 +80,11 @@ export default defineComponent({
       loading,
       isMultiSel,
     };
-
+    const _data = {
+      tableHeaderStyle: {
+        backgroundColor: "#6c757d",
+      },
+    };
     const methods = {
       clearSelection: (): void => {
         (elTable.value as any).clearSelection();
@@ -90,11 +93,10 @@ export default defineComponent({
         (elTable.value as any).clearSelection();
       },
     };
-    return { ...methods, elTable, ...propItem };
+    return { ...methods, elTable, ...propItem, ..._data };
   },
 });
 </script>
-
 <style lang="scss" scoped>
 @import "./Table.scss";
 </style>

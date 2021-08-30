@@ -6,7 +6,6 @@
     </template>
   </el-menu-item>
 </template>
-
 <script lang="ts">
 import { defineComponent, onMounted, onUpdated, toRefs } from "vue";
 import { useRoute } from "vue-router";
@@ -54,5 +53,4 @@ export default defineComponent({
   },
 });
 </script>
-
-<style lang="less" scoped></style>
+<style></style>
