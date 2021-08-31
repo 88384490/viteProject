@@ -63,14 +63,17 @@ import { ref, reactive } from "vue"
 import MyTable from "/@/components/table/Table.vue"
 import { PaginationProp } from "../interface"
 import { columns, pagination } from "./event/Anchor"
+import { AnchorTableColumns } from "/@/interface/anchor"
 
 const myTable = ref(null)
-const data = reactive([
+const data: AnchorTableColumns[] = reactive([
   {
-    name: "咩咩",
-    huyaId: "2222",
+    id: "2",
+    anchorName: "咩咩",
+    huya_Id: "2222",
     startTime: "2021-8-28",
-    fanNumber: "25300",
+    fanNumber: 25300,
+    chatNumber: 3445,
     status: false,
     enabled: false,
   },

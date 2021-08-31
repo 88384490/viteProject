@@ -2,8 +2,8 @@ import { reactive, ref } from "vue"
 import { PaginationProp } from "/@/interface"
 
 const columns = ref([
-  { label: "主播名", prop: "name" },
-  { label: "虎牙号", prop: "huyaId" },
+  { label: "主播名", prop: "anchorName" },
+  { label: "虎牙号", prop: "huya_Id" },
   {
     label: "最后开播时间",
     prop: "startTime",

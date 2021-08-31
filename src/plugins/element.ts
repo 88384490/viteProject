@@ -26,6 +26,7 @@ import ElementPlus, {
   ElTableColumn,
   ElRow,
   ElCol,
+  ElDialog,
 } from "element-plus"
 
 const elements = [
@@ -51,6 +52,7 @@ const elements = [
   ElPagination,
   ElRow,
   ElCol,
+  ElDialog,
 ]
 const plugins = [
   ElInfiniteScroll,
