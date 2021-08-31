@@ -1,2 +1,2 @@
-export * from "./echart";
-export * from "./pagination";
+export * from "./echart"
+export * from "./pagination"

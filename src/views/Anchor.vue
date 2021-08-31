@@ -59,12 +59,12 @@
 </template>
 
 <script setup lang="ts">
-import { ref, reactive } from "vue";
-import MyTable from "/@/components/table/Table.vue";
-import { PaginationProp } from "../interface";
-import { columns, pagination } from "./event/Anchor";
+import { ref, reactive } from "vue"
+import MyTable from "/@/components/table/Table.vue"
+import { PaginationProp } from "../interface"
+import { columns, pagination } from "./event/Anchor"
 
-const myTable = ref(null);
+const myTable = ref(null)
 const data = reactive([
   {
     name: "咩咩",
@@ -74,16 +74,16 @@ const data = reactive([
     status: false,
     enabled: false,
   },
-]);
+])
 
 const handleEnable = (boll: boolean, row: any) => {
-  row.enable = boll;
-  row.status = !boll;
-};
+  row.enable = boll
+  row.status = !boll
+}
 
 const batchEnableOrDisable = () => {
-  console.log(myTable);
-};
+  console.log(myTable)
+}
 </script>
 
 <style lang="scss" scoped>

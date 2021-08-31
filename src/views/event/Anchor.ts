@@ -1,5 +1,5 @@
-import { reactive, ref } from "vue";
-import { PaginationProp } from "/@/interface";
+import { reactive, ref } from "vue"
+import { PaginationProp } from "/@/interface"
 
 const columns = ref([
   { label: "主播名", prop: "name" },
@@ -16,12 +16,12 @@ const columns = ref([
     name: "action",
     width: 200,
   },
-]);
+])
 const pagination: PaginationProp = reactive({
   size: 20,
   total: 100,
   currentPage: 5,
   layout: "prev, pager, next, sizes, jumper, ->,total",
-});
+})
 
-export { columns, pagination };
+export { columns, pagination }

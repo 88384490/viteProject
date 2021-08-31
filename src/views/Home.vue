@@ -43,21 +43,21 @@
 </template>
 
 <script setup lang="ts">
-import { onUpdated, onMounted } from "vue";
-import * as echarts from "echarts";
-import { fanOptions, followOptions, chatOptions } from "./event/Home";
+import { onUpdated, onMounted } from "vue"
+import * as echarts from "echarts"
+import { fanOptions, followOptions, chatOptions } from "./event/Home"
 
 onMounted(() => {
-  console.log("mounted");
-  initFan();
-  initFollow();
-  initChat();
-});
+  console.log("mounted")
+  initFan()
+  initFollow()
+  initChat()
+})
 
 onUpdated(() => {
-  console.log("updated");
-  console.log(echarts);
-});
+  console.log("updated")
+  console.log(echarts)
+})
 
 const spanArr = [
   {
@@ -72,25 +72,25 @@ const spanArr = [
     name: "今日流水",
     data: 20,
   },
-];
+]
 const log = (message: any) => {
-  console.log(message);
-};
+  console.log(message)
+}
 const initFan = () => {
-  const el = document.querySelector("#fan") as HTMLElement;
-  const fanChart = echarts.init(el);
-  fanChart.setOption(fanOptions);
-};
+  const el = document.querySelector("#fan") as HTMLElement
+  const fanChart = echarts.init(el)
+  fanChart.setOption(fanOptions)
+}
 const initFollow = () => {
-  const el = document.querySelector("#follow") as HTMLElement;
-  const followChart = echarts.init(el);
-  followChart.setOption(followOptions);
-};
+  const el = document.querySelector("#follow") as HTMLElement
+  const followChart = echarts.init(el)
+  followChart.setOption(followOptions)
+}
 const initChat = () => {
-  const el = document.querySelector("#chat") as HTMLElement;
-  const chatChart = echarts.init(el);
-  chatChart.setOption(chatOptions);
-};
+  const el = document.querySelector("#chat") as HTMLElement
+  const chatChart = echarts.init(el)
+  chatChart.setOption(chatOptions)
+}
 </script>
 <style lang="scss">
 @import "../assets/style/Home.scss";

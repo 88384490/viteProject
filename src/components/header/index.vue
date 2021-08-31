@@ -14,29 +14,29 @@
   </div>
 </template>
 <script lang="ts">
-import { defineComponent, computed } from "vue";
-import { useRouter, useRoute } from "vue-router";
-import { IRouterItem } from "/@/router/interface";
+import { defineComponent, computed } from "vue"
+import { useRouter, useRoute } from "vue-router"
+import { IRouterItem } from "/@/router/interface"
 export default defineComponent({
   name: "Header",
   setup(props) {
-    const router = useRouter();
-    const route = useRoute() as IRouterItem;
-    const enableSearch = computed(() => route.meta?.search);
+    const router = useRouter()
+    const route = useRoute() as IRouterItem
+    const enableSearch = computed(() => route.meta?.search)
     const reload = () => {
-      window.location.reload();
-    };
+      window.location.reload()
+    }
     const goHome = () => {
-      router.push("/");
-    };
+      router.push("/")
+    }
 
     return {
       reload,
       goHome,
       enableSearch,
-    };
+    }
   },
-});
+})
 </script>
 <style lang="scss" scoped>
 .logo {

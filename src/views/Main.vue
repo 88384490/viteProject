@@ -14,13 +14,13 @@
   </el-container>
 </template>
 <script setup lang="ts">
-import Header from "/@/components/header/index.vue";
-import AsideItem from "/@/components/aside/AsideItem.vue";
-import { onMounted, onUpdated } from "vue";
-let height = (document.querySelector("#app") as HTMLElement).clientHeight - 20;
-onUpdated(function() {
-  height = (document.querySelector("#app") as HTMLElement).clientHeight - 20;
-});
+import Header from "/@/components/header/index.vue"
+import AsideItem from "/@/components/aside/AsideItem.vue"
+import { onMounted, onUpdated } from "vue"
+let height = (document.querySelector("#app") as HTMLElement).clientHeight - 20
+onUpdated(function () {
+  height = (document.querySelector("#app") as HTMLElement).clientHeight - 20
+})
 </script>
 <style lang="scss" scoped>
 .el-header,

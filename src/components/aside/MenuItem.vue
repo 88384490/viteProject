@@ -7,8 +7,8 @@
   </el-menu-item>
 </template>
 <script lang="ts">
-import { defineComponent, onMounted, onUpdated, toRefs } from "vue";
-import { useRoute } from "vue-router";
+import { defineComponent, onMounted, onUpdated, toRefs } from "vue"
+import { useRoute } from "vue-router"
 
 export default defineComponent({
   name: "MenuItem",
@@ -31,17 +31,17 @@ export default defineComponent({
     },
   },
   setup(props) {
-    const route = useRoute();
+    const route = useRoute()
     const {
       menuName = "",
       path = "",
       icon = "",
       disabled = false,
-    }: unknown | any = toRefs(props);
+    }: unknown | any = toRefs(props)
 
     onUpdated(() => {
-      console.log(path);
-    });
+      console.log(path)
+    })
 
     return {
       menuName,
@@ -49,8 +49,8 @@ export default defineComponent({
       icon,
       disabled,
       route,
-    };
+    }
   },
-});
+})
 </script>
 <style></style>

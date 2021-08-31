@@ -4,7 +4,7 @@
   </el-menu>
 </template>
 <script lang="ts">
-import { defineComponent, toRefs } from "vue";
+import { defineComponent, toRefs } from "vue"
 
 export default defineComponent({
   name: "Menu",
@@ -15,12 +15,12 @@ export default defineComponent({
     },
   },
   setup(props, context) {
-    const { defaultPath = "/home" } = toRefs(props);
+    const { defaultPath = "/home" } = toRefs(props)
     const handleSelect = (path: string, pathArr: string) => {
-      context.emit("selectedPath", path);
-    };
-    return { defaultPath, handleSelect };
+      context.emit("selectedPath", path)
+    }
+    return { defaultPath, handleSelect }
   },
-});
+})
 </script>
 <style></style>

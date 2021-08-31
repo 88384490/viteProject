@@ -41,7 +41,7 @@
   </div>
 </template>
 <script lang="ts">
-import { defineComponent, PropType, ref, toRefs } from "vue";
+import { defineComponent, PropType, ref, toRefs } from "vue"
 
 export default defineComponent({
   name: "MyTable",
@@ -72,30 +72,30 @@ export default defineComponent({
     height: { type: Number, required: false },
   },
   setup(props, { emit }) {
-    const elTable = ref(null);
-    const { data, columns, loading, isMultiSel } = toRefs(props);
+    const elTable = ref(null)
+    const { data, columns, loading, isMultiSel } = toRefs(props)
     const propItem = {
       data,
       columns,
       loading,
       isMultiSel,
-    };
+    }
     const _data = {
       tableHeaderStyle: {
         backgroundColor: "#6c757d",
       },
-    };
+    }
     const methods = {
       clearSelection: (): void => {
-        (elTable.value as any).clearSelection();
+        ;(elTable.value as any).clearSelection()
       },
       batchSelectAll: (): void => {
-        (elTable.value as any).clearSelection();
+        ;(elTable.value as any).clearSelection()
       },
-    };
-    return { ...methods, elTable, ...propItem, ..._data };
+    }
+    return { ...methods, elTable, ...propItem, ..._data }
   },
-});
+})
 </script>
 <style lang="scss" scoped>
 @import "./Table.scss";

@@ -13,16 +13,16 @@
   </Menu>
 </template>
 <script lang="ts">
-import { defineComponent, computed } from "vue";
-import Menu from "/@/components/aside/Menu.vue";
-import MenuItem from "/@/components/aside/MenuItem.vue";
-import menus from "../../router/routers";
+import { defineComponent, computed } from "vue"
+import Menu from "/@/components/aside/Menu.vue"
+import MenuItem from "/@/components/aside/MenuItem.vue"
+import menus from "../../router/routers"
 import {
   Router,
   RouteLocationNormalizedLoaded,
   useRoute,
   useRouter,
-} from "vue-router";
+} from "vue-router"
 
 export default defineComponent({
   name: "AsideItem",
@@ -31,24 +31,24 @@ export default defineComponent({
     MenuItem,
   },
   setup() {
-    const router: Router = useRouter();
-    const route: RouteLocationNormalizedLoaded = useRoute();
-    const menuList: any[] = menus;
+    const router: Router = useRouter()
+    const route: RouteLocationNormalizedLoaded = useRoute()
+    const menuList: any[] = menus
     const defaultPath = computed(() => {
-      return route.path;
-    });
+      return route.path
+    })
 
     const transformTitle = (item: any) => {
-      return item.meta && item.meta.title ? item.meta.title : "未定义";
-    };
+      return item.meta && item.meta.title ? item.meta.title : "未定义"
+    }
 
     const hasHidden = (item: any) => {
-      return item.meta && !item.meta.hidden;
-    };
+      return item.meta && !item.meta.hidden
+    }
 
     const handleSelectRoute = (path: string) => {
-      router.push({ path: path });
-    };
+      router.push({ path: path })
+    }
 
     return {
       menuList,
@@ -56,9 +56,9 @@ export default defineComponent({
       transformTitle,
       hasHidden,
       handleSelectRoute,
-    };
+    }
   },
-});
+})
 </script>
 <style lang="scss" scoped>
 .menu {

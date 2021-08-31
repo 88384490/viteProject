@@ -1,12 +1,12 @@
-import { IRouterItem } from "./interface";
+import { IRouterItem } from "./interface"
 import {
   createRouter,
   createWebHistory,
   RouteLocationNormalized,
   RouteRecordRaw,
   Router,
-} from "vue-router";
-import children from "./routers";
+} from "vue-router"
+import children from "./routers"
 
 const routes: RouteRecordRaw[] = [
   {
@@ -22,21 +22,21 @@ const routes: RouteRecordRaw[] = [
     meta: { title: "错误页面", icon: "el-icon-not-eleme" },
     component: () => import("../components/error/NotFound.vue"),
   },
-];
+]
 
 const router: Router = createRouter({
   history: createWebHistory(),
   routes,
-});
+})
 
 router.beforeEach((to, from, next) => {
-  next();
-});
+  next()
+})
 
 router.afterEach(
   (to: RouteLocationNormalized, from: RouteLocationNormalized) => {
-    document.title = (to.meta as any).title;
+    document.title = (to.meta as any).title
   }
-);
+)
 
-export default router;
+export default router

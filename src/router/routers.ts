@@ -1,4 +1,4 @@
-import { IRouterItem } from "./interface";
+import { IRouterItem } from "./interface"
 
 const routers: Partial<IRouterItem>[] = [
   {
@@ -43,6 +43,6 @@ const routers: Partial<IRouterItem>[] = [
     },
     component: () => import("/@/views/Movie.vue"),
   },
-];
+]
 
-export default routers;
+export default routers

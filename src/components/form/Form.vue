@@ -5,8 +5,8 @@
 </template>
 
 <script setup lang="ts">
-import { defineComponent, ref, toRefs } from "vue";
-import { FormProps } from "/@/components/form/interface";
+import { defineComponent, ref, toRefs } from "vue"
+import { FormProps } from "/@/components/form/interface"
 export default defineComponent({
   name: "MyForm",
   emits: ["validate"],
@@ -24,25 +24,25 @@ export default defineComponent({
     },
   },
   setup(props) {
-    const elForm = ref(null);
-    const { fromData, config, size } = toRefs(props);
+    const elForm = ref(null)
+    const { fromData, config, size } = toRefs(props)
 
-    const propItem = { fromData, config, size };
+    const propItem = { fromData, config, size }
 
     const methods = {
       resetField: (): void => {
-        (elForm.value as any).resetField();
+        ;(elForm.value as any).resetField()
       },
       clearValidate: (): void => {
-        (elForm.value as any).clearValidate();
+        ;(elForm.value as any).clearValidate()
       },
-    };
+    }
     return {
       ...propItem,
       elForm,
-    };
+    }
   },
-});
+})
 </script>
 
 <style lang="scss" scoped></style>

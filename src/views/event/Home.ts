@@ -1,4 +1,4 @@
-import { EChartsOption } from "echarts";
+import { EChartsOption } from "echarts"
 const fanOptions: EChartsOption = {
   title: {
     text: "粉丝增长",
@@ -24,7 +24,7 @@ const fanOptions: EChartsOption = {
       type: "line",
     },
   ],
-};
+}
 
 const followOptions: EChartsOption = {
   title: {
@@ -51,7 +51,7 @@ const followOptions: EChartsOption = {
       type: "line",
     },
   ],
-};
+}
 
 const chatOptions: EChartsOption = {
   title: {
@@ -89,6 +89,6 @@ const chatOptions: EChartsOption = {
       type: "bar",
     },
   ],
-};
+}
 
-export { fanOptions, followOptions, chatOptions };
+export { fanOptions, followOptions, chatOptions }

@@ -1,13 +1,13 @@
 interface baseOption {
-  el: Element;
+  el: Element
 }
 
 interface IBarChartParam extends baseOption {
-  option: any;
+  option: any
 }
 
 interface IEchartsItem {
-  useBarChart(options: IBarChartParam): any;
+  useBarChart(options: IBarChartParam): any
 }
 
-export { IEchartsItem, IBarChartParam };
+export { IEchartsItem, IBarChartParam }

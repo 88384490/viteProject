@@ -1,1 +1,1 @@
-declare module "@ehutch79/vite-eslint";
+declare module "@ehutch79/vite-eslint"
