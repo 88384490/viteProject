@@ -22,6 +22,24 @@
       font-size: 30px;
       color: #67C23A;
     }
+    .box-card-content {
+      display: inline-flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 65px;
+      .data, .icon {
+        font-size: 25px;
+      }
+      .data {
+        color: $--dark;
+      }
+      .el-icon-top {
+        color: $--blue;
+      }
+      .el-icon-bottom {
+        color: $--orange;
+      }
+    }
     span {
       display: block;
     }

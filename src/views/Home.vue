@@ -9,7 +9,11 @@
         >
           <el-card shadow="hover" class="box-card">
             <span class="box-card-title">{{ item.name }}</span>
-            <span>{{ item.data }}</span>
+            <span class="box-card-content">
+              <span class="data">{{ item.data }}</span>
+              <i class="el-icon-top icon" v-if="item.type === 'up'"></i>
+              <i class="el-icon-bottom icon" v-else></i>
+            </span>
           </el-card>
         </el-col>
       </el-row>
@@ -45,6 +49,7 @@
 <script setup lang="ts">
 import { onUpdated, onMounted } from "vue"
 import * as echarts from "echarts"
+import { Edit } from "@element-plus/icons"
 import { fanOptions, followOptions, chatOptions } from "./event/Home"
 
 onMounted(() => {
@@ -63,14 +68,17 @@ const spanArr = [
   {
     name: "粉丝数",
     data: 20,
+    type: "up"
   },
   {
     name: "弹幕数",
     data: 20,
+    type: "down"
   },
   {
     name: "今日流水",
     data: 20,
+    type: "up"
   },
 ]
 const log = (message: any) => {
@@ -93,5 +101,6 @@ const initChat = () => {
 }
 </script>
 <style lang="scss">
+@import "../Common.scss";
 @import "../assets/style/Home.scss";
 </style>
