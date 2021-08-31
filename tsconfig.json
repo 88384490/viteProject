@@ -15,8 +15,9 @@
     "baseUrl": ".",
     "paths": {
       "/@/*": ["src/*"],
-      "types": ["vite/client", "node"]
+      "/mock/*": ["mock/*"],
     },
+    "types": ["vite/client", "node"]
   },
   "include": [
     "src/**/*.ts",
