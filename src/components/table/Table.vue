@@ -48,7 +48,7 @@ export default defineComponent({
   emits: ["clearSel"],
   props: {
     data: {
-      type: Array,
+      type: Array as PropType<any[]>,
       required: true,
     },
     columns: {
