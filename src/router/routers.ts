@@ -43,6 +43,16 @@ const routers: Partial<IRouterItem>[] = [
     },
     component: () => import("/@/views/Movie.vue"),
   },
+  {
+    path: "/form/:id",
+    name: "form",
+    meta: {
+      title: "表格",
+      search: false,
+      hidden: true,
+    },
+    component: () => import("/@/views/MovieForm.vue"),
+  },
 ]
 
 export default routers

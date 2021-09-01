@@ -1,5 +1,11 @@
 <template>
-  <el-dialog :title="title" :value="visible" :width="width">
+  <el-dialog
+    ref="dialog"
+    :title="title"
+    :value="visible"
+    :width="width"
+    destroy-on-close
+  >
     <slot name="dialogContent"></slot>
     <template #footer>
       <span class="dialog-footer">
@@ -13,6 +19,7 @@
 import { defineComponent } from "vue"
 export default defineComponent({
   name: "Modal",
+  emits: ["beforeClose", "submit"],
   props: {
     title: {
       type: String,
@@ -29,6 +36,14 @@ export default defineComponent({
       required: false,
       default: "30%",
     },
+  },
+  setup(prop, { emit }) {
+    const methods = {
+      handleClose() {},
+    }
+    return {
+      ...methods,
+    }
   },
 })
 </script>

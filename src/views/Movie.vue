@@ -22,9 +22,6 @@
         >
       </template>
     </MyTable>
-    <MyModal :title="modalTitle" v-model="dialogVisible" width="30%">
-      <template #dialogContent>22222</template>
-    </MyModal>
   </div>
 </template>
 
@@ -35,9 +32,9 @@ import { PaginationProp } from "/@/interface"
 import { columns } from "/@/views/event/Movie"
 import { MovieTableColumns } from "/@/interface/movie"
 import { reactive, ref } from "vue"
-import { useStore } from "vuex"
+import { useRouter } from "vue-router"
 
-const store = useStore()
+const router = useRouter()
 
 const data: MovieTableColumns[] = reactive([
   {
@@ -51,21 +48,17 @@ const data: MovieTableColumns[] = reactive([
   },
 ])
 
-const dialogVisible = ref(false)
-const modalTitle = ref("新增")
-
 const handleShowModal = (show: boolean) => {
   dialogVisible.value = show
 }
 
 const handleAddMovieData = () => {
-  modalTitle.value = "新增"
-  dialogVisible.value = true
+  router.push(`/form/${0}`)
 }
 
-const handleEditMovieData = (row) => {
-  modalTitle.value = "编辑"
-  dialogVisible.value = true
+const handleEditMovieData = (row: MovieTableColumns) => {
+  const { id } = row
+  router.push(`/form/${id}`)
 }
 </script>
 

@@ -1,11 +1,48 @@
 <template>
   <el-form ref="elForm" :model="formData" hide-required-asterisk>
-    <el-form-item></el-form-item>
+    <el-form-item
+      v-for="item in config"
+      :key="item.prop"
+      :label="item.label"
+      :label-width="item.labelWidth"
+      :rules="item.rules"
+    >
+      <span v-if="item.type === 'text'">{{ formData[item.prop] }}</span>
+      <el-input
+        v-if="item.type === 'input'"
+        v-model="item.prop"
+        :placeholder="item.placeholder"
+        :disabled="item.disabled"
+        @change="item.method?.onChange"
+      ></el-input>
+      <el-select
+        v-if="item.type === 'select'"
+        v-model="item.prop"
+        :disabled="item.disabled"
+        @change="item.method?.onChange"
+      >
+        <el-options
+          v-for="it in item.options"
+          :key="it.value"
+          :label="it.label"
+          :value="it.value"
+        ></el-options>
+      </el-select>
+      <el-date-picker
+        v-if="item.type === 'datetime'"
+        v-model="item.prop"
+        type="datetime"
+        placeholder="选择日期时间"
+        :disabled="item.disabled"
+        @change="item.method?.onChange()"
+      >
+      </el-date-picker>
+    </el-form-item>
   </el-form>
 </template>
 
-<script setup lang="ts">
-import { defineComponent, ref, toRefs } from "vue"
+<script lang="ts">
+import { defineComponent, onMounted, PropType, ref, toRefs } from "vue"
 import { FormProps } from "/@/components/form/interface"
 export default defineComponent({
   name: "MyForm",
@@ -16,7 +53,7 @@ export default defineComponent({
       required: true,
     },
     config: {
-      type: Object as FormProps,
+      type: Array as PropType<Array<FormProps>>,
       required: true,
     },
     size: {
@@ -25,9 +62,12 @@ export default defineComponent({
   },
   setup(props) {
     const elForm = ref(null)
-    const { fromData, config, size } = toRefs(props)
+    const { config, formData } = toRefs(props)
 
-    const propItem = { fromData, config, size }
+    onMounted(() => {
+      console.log(config.value)
+      console.log(formData.value)
+    })
 
     const methods = {
       resetField: (): void => {
@@ -38,7 +78,6 @@ export default defineComponent({
       },
     }
     return {
-      ...propItem,
       elForm,
     }
   },
