@@ -35,6 +35,9 @@ import { PaginationProp } from "/@/interface"
 import { columns } from "/@/views/event/Movie"
 import { MovieTableColumns } from "/@/interface/movie"
 import { reactive, ref } from "vue"
+import { useStore } from "vuex"
+
+const store = useStore()
 
 const data: MovieTableColumns[] = reactive([
   {

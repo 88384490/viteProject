@@ -1,4 +1,11 @@
 <template>
+  <el-progress
+    v-if="showProgress"
+    class="progress"
+    :percentage="50"
+    :indeterminate="true"
+    :show-text="false"
+  />
   <el-container class="main" direction="vertical">
     <el-header>
       <Header />
@@ -14,12 +21,23 @@
   </el-container>
 </template>
 <script setup lang="ts">
+import { ElProgress } from "element-plus"
 import Header from "/@/components/header/index.vue"
 import AsideItem from "/@/components/aside/AsideItem.vue"
-import { onMounted, onUpdated } from "vue"
+import { computed, onMounted } from "vue"
+import { useStore } from "vuex"
+
 let height = (document.querySelector("#app") as HTMLElement).clientHeight - 20
-onUpdated(function () {
-  height = (document.querySelector("#app") as HTMLElement).clientHeight - 20
+
+const store = useStore()
+
+const showProgress = computed(() => store.getters.showProgress)
+
+onMounted(() => {
+  window.addEventListener("resize", () => {
+    height = (document.querySelector("#app") as HTMLElement).clientHeight - 20
+  })
+  console.log(showProgress.value)
 })
 </script>
 <style lang="scss" scoped>
@@ -40,5 +58,10 @@ onUpdated(function () {
 //}
 header.el-header {
   padding: 0;
+}
+.progress {
+  position: fixed;
+  width: 100%;
+  top: 0;
 }
 </style>

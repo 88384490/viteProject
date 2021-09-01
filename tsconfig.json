@@ -24,7 +24,6 @@
     "src/**/*.d.ts",
     "src/**/*.tsx",
     "src/**/*.vue",
-    "src/eslint.d.ts"
   ],
   "exclude": ["node_modules"]
 }
