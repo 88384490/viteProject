@@ -1,8 +1,11 @@
 <template>
   <div id="movieForm">
     <span class="title">新增</span>
-    <myForm :config="config" v-model:formData="data"></myForm>
-    <CustomSelect v-model:modelValue="data.movieName" :options="options" />
+    <myForm
+      :config="formConfig"
+      v-model:formData="data"
+      @submit="callbackData"
+    />
     <div class="submit-btn">
       <el-button type="primary" @click="handleSubmit">提交</el-button>
       <el-button type="danger" @click="handleCancel">取消</el-button>
@@ -11,10 +14,7 @@
 </template>
 
 <script setup lang="ts">
-import MyForm from "/@/components/form/Form.vue"
-import CustomSelect from "/@/components/CustormSelect/Select.vue"
-import { ETypeItem, FormProps, OptionsItem } from "/@/components/form/interface"
-import { onMounted, reactive, ref } from "vue"
+import { reactive, ref } from "vue"
 import { useStore } from "vuex"
 import {
   RouteLocationNormalized,
@@ -22,46 +22,17 @@ import {
   useRoute,
   useRouter,
 } from "vue-router"
+import { DataItem } from "/@/interface"
+import { formConfig } from "./Movie"
 
 const store = useStore()
 const router: Router = useRouter()
 const route: RouteLocationNormalized = useRoute()
 const form = ref(null)
 
-const config: FormProps[] = reactive([
-  {
-    prop: "movieName",
-    label: "电影名称",
-    type: ETypeItem.input,
-  },
-  {
-    prop: "type",
-    label: "类型",
-    type: ETypeItem.select,
-    options: [
-      {
-        value: "action",
-        label: "动作",
-      },
-    ],
-  },
-])
-interface DataItem {
-  movieName: string
-  type: string
-}
 const data: DataItem = reactive({
   movieName: "222",
   type: "action",
-})
-const options: OptionsItem = [
-  {
-    value: 1,
-    label: "属性1",
-  },
-]
-onMounted(() => {
-  console.log(route.query)
 })
 
 const handleSubmit = () => {
@@ -69,6 +40,9 @@ const handleSubmit = () => {
 }
 const handleCancel = () => {
   router.push("/movie")
+}
+const callbackData = (data: any) => {
+  console.log(data)
 }
 </script>
 

@@ -28,4 +28,5 @@ export enum ETypeItem {
   input = "input",
   select = "select",
   datetime = "datetime",
+  date = "date",
 }

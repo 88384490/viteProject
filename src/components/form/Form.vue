@@ -58,7 +58,7 @@ import { defineComponent, onMounted, PropType, ref, toRefs } from "vue"
 import { FormProps } from "/@/components/form/interface"
 export default defineComponent({
   name: "MyForm",
-  emits: ["validate"],
+  emits: ["submit"],
   props: {
     formData: {
       type: Array,

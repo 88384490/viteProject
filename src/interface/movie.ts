@@ -8,3 +8,8 @@ export interface MovieTableColumns {
   userNumber: number
   principalCsat: string
 }
+
+export interface DataItem {
+  movieName: string
+  type: string
+}

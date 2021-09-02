@@ -1,4 +1,5 @@
-import { ref } from "vue"
+import { reactive, ref } from "vue"
+import { ETypeItem, FormProps } from "/@/components/form/interface"
 
 const columns = ref([
   { label: "电影名称", prop: "movieName" },
@@ -10,4 +11,22 @@ const columns = ref([
   { label: "操作", slot: true, name: "action", width: 200 },
 ])
 
-export { columns }
+const formConfig: FormProps[] = [
+  {
+    prop: "movieName",
+    label: "电影名称",
+    type: ETypeItem.input,
+  },
+  // {
+  //   prop: "type",
+  //   label: "类型",
+  //   type: ETypeItem.select,
+  //   options: [
+  //     {
+  //       value: "action",
+  //       label: "动作",
+  //     },
+  //   ],
+  // },
+]
+export { columns, formConfig }
