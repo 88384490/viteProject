@@ -13,9 +13,9 @@ export interface FormProps {
   onChange?: void
   method?: Methods
 }
-interface OptionsItem {
+export interface OptionsItem {
   label: string
-  value: string
+  value: string | number
 }
 
 export interface Methods {

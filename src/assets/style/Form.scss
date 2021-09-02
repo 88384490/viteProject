@@ -1,0 +1,11 @@
+@import "src/Common.scss";
+.el-select {
+  width: 100%;
+  .el-select-dropdown {
+    padding: 0 32px 0 20px !important;
+  }
+}
+
+.el-form-item {
+  margin-bottom: 20px;
+}

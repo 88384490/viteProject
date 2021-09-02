@@ -36,5 +36,6 @@ module.exports = {
     "@typescript-eslint/no-explicit-any": "off",
     "vue/no-dupe-keys": "off",
     "vue/no-unused-components": "off",
+    "vue/no-mutating-props": "off",
   },
-};
+}

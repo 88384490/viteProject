@@ -1,4 +1,3 @@
-import { IRouterItem } from "./interface"
 import {
   createRouter,
   createWebHistory,
@@ -7,6 +6,9 @@ import {
   Router,
 } from "vue-router"
 import children from "./routers"
+import { useStore } from "vuex"
+
+const store = useStore()
 
 const routes: RouteRecordRaw[] = [
   {
@@ -30,6 +32,7 @@ const router: Router = createRouter({
 })
 
 router.beforeEach((to, from, next) => {
+  console.log(store)
   next()
 })
 

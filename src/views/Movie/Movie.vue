@@ -8,20 +8,22 @@
       <el-button size="mini" class="enable-btn">批量启动</el-button>
       <el-button size="mini" class="disabled-btn">批量停用</el-button>
     </div>
-    <MyTable :data="data" :columns="columns">
-      <template #action>
-        <el-button class="del-table-btn" size="mini" type="text"
-          >删除</el-button
-        >
-        <el-button
-          class="edit-table-btn"
-          size="mini"
-          type="text"
-          @click="handleEditMovieData"
-          >编辑</el-button
-        >
-      </template>
-    </MyTable>
+    <div>
+      <MyTable :data="data" :columns="columns">
+        <template #action>
+          <el-button class="del-table-btn" size="mini" type="text"
+            >删除</el-button
+          >
+          <el-button
+            class="edit-table-btn"
+            size="mini"
+            type="text"
+            @click="handleEditMovieData"
+            >编辑</el-button
+          >
+        </template>
+      </MyTable>
+    </div>
   </div>
 </template>
 
@@ -32,9 +34,9 @@ import { PaginationProp } from "/@/interface"
 import { columns } from "/@/views/Movie/Movie"
 import { MovieTableColumns } from "/@/interface/movie"
 import { reactive, ref } from "vue"
-import { useRouter } from "vue-router"
+import { Router, useRouter } from "vue-router"
 
-const router = useRouter()
+const router: Router = useRouter()
 
 const data: MovieTableColumns[] = reactive([
   {
@@ -53,12 +55,12 @@ const handleShowModal = (show: boolean) => {
 }
 
 const handleAddMovieData = () => {
-  router.push(`/form/${0}`)
+  router.push({ path: "/movieForm/" })
 }
 
 const handleEditMovieData = (row: MovieTableColumns) => {
   const { id } = row
-  router.push(`/form/${id}`)
+  router.push({ path: "/movieForm/", query: { plan: "private" } })
 }
 </script>
 

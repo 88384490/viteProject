@@ -15,15 +15,16 @@
         <AsideItem></AsideItem>
       </el-aside>
       <el-main class="shadow">
-        <router-view></router-view>
+        <layoutContent />
       </el-main>
     </el-container>
   </el-container>
 </template>
 <script setup lang="ts">
 import { ElProgress } from "element-plus"
-import Header from "/@/components/header/index.vue"
+import Header from "/@/components/header/Header.vue"
 import AsideItem from "/@/components/aside/AsideItem.vue"
+import layoutContent from "/@/components/layout/Content.vue"
 import { computed, onMounted } from "vue"
 import { useStore } from "vuex"
 
@@ -49,13 +50,17 @@ onMounted(() => {
 }
 .el-main {
   padding: 0;
+  overflow: hidden;
+}
+.el-aside {
+  height: 100%;
 }
 .main {
   height: 100%;
 }
-//.container {
-//  overflow-y: auto;
-//}
+.container {
+  overflow-y: auto;
+}
 header.el-header {
   padding: 0;
 }

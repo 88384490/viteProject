@@ -40,6 +40,9 @@
           <el-col :span="12" style="padding-left: 0">
             <div id="chat"></div>
           </el-col>
+          <el-col :span="12" style="padding-right: 0">
+            <div id="chat2"></div>
+          </el-col>
         </el-row>
       </div>
     </div>
@@ -49,7 +52,6 @@
 <script setup lang="ts">
 import { onUpdated, onMounted } from "vue"
 import * as echarts from "echarts"
-import { Edit } from "@element-plus/icons"
 import { fanOptions, followOptions, chatOptions } from "./event/Home"
 
 let fanChart: any, followChart: any, chatChart: any
@@ -59,6 +61,7 @@ onMounted(() => {
   initFan()
   initFollow()
   initChat()
+  initChat2()
   window.addEventListener("resize", () => {
     chartResize()
   })
@@ -101,11 +104,16 @@ const initChat = () => {
   chatChart = echarts.init(document.querySelector("#chat") as HTMLElement)
   chatChart.setOption(chatOptions)
 }
+const initChat2 = () => {
+  chatChart = echarts.init(document.querySelector("#chat2") as HTMLElement)
+  chatChart.setOption(chatOptions)
+}
 
 const chartResize = () => {
   fanChart.resize()
   followChart.resize()
   chatChart.resize()
+  initChat2.resize()
 }
 </script>
 <style lang="scss">

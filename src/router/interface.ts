@@ -1,4 +1,4 @@
-interface IMetaItem {
+export interface IMetaItem {
   title: string
   hidden?: boolean
   icon?: string

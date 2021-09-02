@@ -1,5 +1,14 @@
-import { IRouterItem } from "./interface"
-
+import { IRouterItem, IMetaItem } from "./interface"
+import "vue-router"
+declare module "vue-router" {
+  interface RouteMeta {
+    title: string
+    hidden?: boolean
+    icon?: string
+    roles?: string[]
+    search: boolean
+  }
+}
 const routers: Partial<IRouterItem>[] = [
   {
     path: "",
@@ -41,10 +50,10 @@ const routers: Partial<IRouterItem>[] = [
       icon: "el-icon-video-camera-solid",
       search: true,
     },
-    component: () => import("/@/views/Movie/index.vue"),
+    component: () => import("/@/views/Movie/Movie.vue"),
   },
   {
-    path: "/movieForm/:id",
+    path: "/movieForm",
     name: "form",
     meta: {
       title: "电影表单",

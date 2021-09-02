@@ -4,7 +4,7 @@
     :border="true"
     :data="data"
     empty-text="暂无数据"
-    height="100%"
+    height="height"
     style="width: 100%"
     size="mini"
   >

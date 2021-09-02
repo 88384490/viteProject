@@ -21,12 +21,14 @@ import ElementPlus, {
   ElNotification,
   ElPagination,
   ElSelect,
+  ElOption,
   ElSpace,
   ElTable,
   ElTableColumn,
   ElRow,
   ElCol,
   ElDialog,
+  ElScrollbar,
 } from "element-plus"
 
 const elements = [
@@ -43,6 +45,7 @@ const elements = [
   ElButtonGroup,
   ElInput,
   ElSelect,
+  ElOption,
   ElIcon,
   ElLink,
   ElForm,
@@ -53,6 +56,7 @@ const elements = [
   ElRow,
   ElCol,
   ElDialog,
+  ElScrollbar,
 ]
 const plugins = [
   ElInfiniteScroll,
@@ -66,6 +70,7 @@ import "element-plus/dist/index.css"
 import "dayjs/locale/zh-cn"
 import "element-plus/dist/index.css"
 import "element-plus/theme-chalk/display.css"
+import "element-plus/theme-chalk/base.css"
 export default (app: any) => {
   elements.forEach((element) => {
     app.component(element.name, element)
