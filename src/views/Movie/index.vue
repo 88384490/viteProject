@@ -29,7 +29,7 @@
 import MyTable from "/@/components/table/Table.vue"
 import MyModal from "/@/components/modal/Dialog.vue"
 import { PaginationProp } from "/@/interface"
-import { columns } from "/@/views/event/Movie"
+import { columns } from "/@/views/Movie/Movie"
 import { MovieTableColumns } from "/@/interface/movie"
 import { reactive, ref } from "vue"
 import { useRouter } from "vue-router"
@@ -49,7 +49,7 @@ const data: MovieTableColumns[] = reactive([
 ])
 
 const handleShowModal = (show: boolean) => {
-  dialogVisible.value = show
+  // dialogVisible.value = show
 }
 
 const handleAddMovieData = () => {
@@ -63,6 +63,6 @@ const handleEditMovieData = (row: MovieTableColumns) => {
 </script>
 
 <style lang="scss" scoped>
-@import "src/components/table/Table.scss";
-@import "src/assets/style/Movie.scss";
+@import "../../components/table/Table";
+@import "../../assets/style/Movie";
 </style>

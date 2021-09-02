@@ -61,8 +61,8 @@
 <script setup lang="ts">
 import { ref, reactive } from "vue"
 import MyTable from "/@/components/table/Table.vue"
-import { PaginationProp } from "../interface"
-import { columns, pagination } from "./event/Anchor"
+import { PaginationProp } from "/@/interface"
+import { columns, pagination } from "./Anchor"
 import { AnchorTableColumns } from "/@/interface/anchor"
 
 const myTable = ref(null)
@@ -90,6 +90,6 @@ const batchEnableOrDisable = () => {
 </script>
 
 <style lang="scss" scoped>
-@import "src/components/table/Table.scss";
-@import "src/assets/style/Anchor.scss";
+@import "../../components/table/Table";
+@import "../../assets/style/Anchor";
 </style>

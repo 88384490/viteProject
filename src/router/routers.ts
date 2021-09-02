@@ -20,7 +20,7 @@ const routers: Partial<IRouterItem>[] = [
       roles: ["ADMINISTRATOR", "USER_ADMINISTRATOR"],
       search: true,
     },
-    component: () => import("/@/views/Anchor.vue"),
+    component: () => import("/@/views/Anchor/Anchor.vue"),
   },
   {
     path: "/user",
@@ -41,17 +41,17 @@ const routers: Partial<IRouterItem>[] = [
       icon: "el-icon-video-camera-solid",
       search: true,
     },
-    component: () => import("/@/views/Movie.vue"),
+    component: () => import("/@/views/Movie/index.vue"),
   },
   {
-    path: "/form/:id",
+    path: "/movieForm/:id",
     name: "form",
     meta: {
-      title: "表格",
+      title: "电影表单",
       search: false,
       hidden: true,
     },
-    component: () => import("/@/views/MovieForm.vue"),
+    component: () => import("/@/views/Movie/MovieForm.vue"),
   },
 ]
 

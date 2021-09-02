@@ -52,9 +52,7 @@ import * as echarts from "echarts"
 import { Edit } from "@element-plus/icons"
 import { fanOptions, followOptions, chatOptions } from "./event/Home"
 
-let fanChart = echarts.init(document.querySelector("#fan")),
-  followChart = echart.init(document.querySelector("#follow")),
-  chatChart = echart.init(document.querySelector("#chat"))
+let fanChart: any, followChart: any, chatChart: any
 
 onMounted(() => {
   console.log("mounted")
@@ -92,12 +90,15 @@ const log = (message: any) => {
   console.log(message)
 }
 const initFan = () => {
+  fanChart = echarts.init(document.querySelector("#fan") as HTMLElement)
   fanChart.setOption(fanOptions)
 }
 const initFollow = () => {
+  followChart = echarts.init(document.querySelector("#follow") as HTMLElement)
   followChart.setOption(followOptions)
 }
 const initChat = () => {
+  chatChart = echarts.init(document.querySelector("#chat") as HTMLElement)
   chatChart.setOption(chatOptions)
 }
 
