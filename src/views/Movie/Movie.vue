@@ -1,12 +1,14 @@
 <template>
   <div id="movie">
     <div class="button-group">
-      <el-button size="mini" class="add-btn" @click="handleAddMovieData"
-        >新增</el-button
+      <el-button size="mini" class="add-btn" icon="el-icon-circle-plus-outline
+" @click="handleAddMovieData">
+        新增</el-button
       >
-      <el-button size="mini" class="del-btn">批量删除</el-button>
-      <el-button size="mini" class="enable-btn">批量启动</el-button>
-      <el-button size="mini" class="disabled-btn">批量停用</el-button>
+      <el-button size="mini" class="del-btn" icon="el-icon-delete
+">批量删除</el-button>
+      <el-button size="mini" class="enable-btn" icon="el-icon-circle-check">批量启动</el-button>
+      <el-button size="mini" class="disabled-btn" icon="el-icon-circle-close">批量停用</el-button>
     </div>
     <div>
       <MyTable :data="data" :columns="columns">
@@ -30,6 +32,7 @@
 <script setup lang="ts">
 import MyTable from "/@/components/table/Table.vue"
 import MyModal from "/@/components/modal/Dialog.vue"
+import { CirclePlus } from "@element-plus/icons"
 import { PaginationProp } from "/@/interface"
 import { columns } from "/@/views/Movie/Movie"
 import { MovieTableColumns } from "/@/interface/movie"
