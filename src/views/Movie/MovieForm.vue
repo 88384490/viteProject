@@ -14,6 +14,7 @@
 </template>
 
 <script setup lang="ts">
+import MyForm from '/@/components/form/Form.vue'
 import { reactive, ref } from "vue"
 import { useStore } from "vuex"
 import {

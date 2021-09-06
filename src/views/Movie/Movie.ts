@@ -17,16 +17,16 @@ const formConfig: FormProps[] = [
     label: "电影名称",
     type: ETypeItem.input,
   },
-  // {
-  //   prop: "type",
-  //   label: "类型",
-  //   type: ETypeItem.select,
-  //   options: [
-  //     {
-  //       value: "action",
-  //       label: "动作",
-  //     },
-  //   ],
-  // },
+  {
+    prop: "type",
+    label: "类型",
+    type: ETypeItem.select,
+    options: [
+      {
+        value: "action",
+        label: "动作",
+      },
+    ],
+  },
 ]
 export { columns, formConfig }
