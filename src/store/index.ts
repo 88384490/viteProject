@@ -1,5 +1,5 @@
 import { createStore, StoreOptions, MutationTree, GetterTree } from "vuex"
-import { GettersItem, StoreItem } from "./interface"
+import { EMutationFun, GettersItem, StoreItem } from "./interface";
 const store: StoreOptions<any> = {
   state: {
     showProgress: false,
@@ -10,7 +10,7 @@ const store: StoreOptions<any> = {
     },
   } as GetterTree<GettersItem, any>,
   mutations: {
-    handleShowProgress(state: StoreItem, params) {
+    [EMutationFun.HANDLE_SHOW_PROGRESS](state: StoreItem, params) {
       state.showProgress = params
     },
   } as MutationTree<StoreItem>,
