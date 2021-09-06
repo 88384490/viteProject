@@ -43,11 +43,11 @@
     "vite": "^2.4.4",
     "vite-plugin-element-plus": "0.0.12",
     "vite-plugin-mock": "^2.9.6",
-    "vue-tsc": "^0.3.0"
+    "vue-tsc": "^0.3.0",
+    "yorkie": "^2.0.0"
   },
   "gitHooks": {
-    "pre-commit": "lint-staged"
-  },
+   },
   "prettier": {
     "tabWidth": 2,
     "quotes": true,
