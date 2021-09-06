@@ -1,11 +1,7 @@
 <template>
   <div id="movieForm">
     <span class="title">新增</span>
-    <myForm
-      :config="formConfig"
-      v-model:formData="data"
-      @submit="callbackData"
-    />
+    <myForm :config="config" v-model:formData="data" />
     <div class="submit-btn">
       <el-button type="primary" @click="handleSubmit">提交</el-button>
       <el-button type="danger" @click="handleCancel">取消</el-button>
@@ -24,7 +20,7 @@ import {
   useRouter,
 } from "vue-router"
 import { DataItem } from "/@/interface"
-import { formConfig } from "./Movie"
+import { FormProps, ETypeItem } from "/@/components/form/interface"
 
 const store = useStore()
 const router: Router = useRouter()
@@ -36,14 +32,33 @@ const data: DataItem = reactive({
   type: "action",
 })
 
-const handleSubmit = () => {
+const config: FormProps[] = [
+  {
+    prop: "movieName",
+    label: "电影名称",
+    type: ETypeItem.input,
+  },
+  {
+    prop: "type",
+    label: "类型",
+    type: ETypeItem.select,
+    options: [
+      {
+        value: "action",
+        label: "动作",
+      },
+    ],
+  },
+]
+
+const handleSubmit = (): boolean => {
   console.log(data)
+  return true
 }
-const handleCancel = () => {
-  router.push("/movie")
-}
-const callbackData = (data: any) => {
+const handleCancel = (): boolean => {
   console.log(data)
+  // router.push("/movie")
+  return true
 }
 </script>
 

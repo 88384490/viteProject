@@ -1,17 +1,19 @@
 <template>
   <div id="anchor">
     <div class="button-group">
-      <el-button size="mini" class="add-btn">新增</el-button>
-      <el-button size="mini" class="del-btn">批量删除</el-button>
+      <el-button size="mini" class="add-btn" icon="el-icon-circle-plus-outline">新增</el-button>
+      <el-button size="mini" class="del-btn" icon="el-icon-delete">批量删除</el-button>
       <el-button
         size="mini"
         class="enable-btn"
+        icon="el-icon-circle-close"
         @click="batchEnableOrDisable(true)"
         >批量启动</el-button
       >
       <el-button
         size="mini"
         class="disabled-btn"
+        icon="el-icon-circle-close"
         @click="batchEnableOrDisable(false)"
         >批量停用</el-button
       >
@@ -74,8 +76,8 @@ const data: AnchorTableColumns[] = reactive([
     startTime: "2021-8-28",
     fanNumber: 25300,
     chatNumber: 3445,
-    status: false,
-    enabled: false,
+    status: true   ,
+    enabled: true,
   },
 ])
 
@@ -84,7 +86,7 @@ const handleEnable = (boll: boolean, row: any) => {
   row.status = !boll
 }
 
-const batchEnableOrDisable = () => {
+const batchEnableOrDisable = (value:boolean) => {
   console.log(myTable)
 }
 </script>
