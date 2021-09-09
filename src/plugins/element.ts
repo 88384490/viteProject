@@ -28,7 +28,7 @@ import ElementPlus, {
   ElRow,
   ElCol,
   ElDialog,
-  ElScrollbar,
+  ElDatePicker,
 } from "element-plus"
 
 const elements = [
@@ -56,7 +56,7 @@ const elements = [
   ElRow,
   ElCol,
   ElDialog,
-  ElScrollbar,
+  ElDatePicker,
 ]
 const plugins = [
   ElInfiniteScroll,

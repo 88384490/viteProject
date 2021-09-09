@@ -40,7 +40,7 @@
         type="datetime"
         placeholder="请选择日期时间"
         :disabled="item.disabled"
-        @change="item.method?.onChange()"
+        @change="(item.method as any)?.onChange()"
       />
       <el-date-picker
         v-if="item.type === 'date'"
@@ -61,7 +61,7 @@ export default defineComponent({
   emits: ["submit"],
   props: {
     formData: {
-      type: Array,
+      type: Array as any,
       required: true,
     },
     config: {
