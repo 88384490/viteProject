@@ -9,7 +9,12 @@ export interface MovieTableColumns {
   principalCsat: string
 }
 
-export interface DataItem {
+export interface MovieForm {
   movieName: string
   type: string
+  year: Date | null | number
+  runtime: string
+  userRating: string
+  userNumber: string
+  principalCast: string
 }

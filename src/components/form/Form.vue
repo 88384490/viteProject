@@ -3,6 +3,7 @@
     ref="elForm"
     :label-width="formLabelWidth"
     :model="formData"
+    :size="size"
     hide-required-asterisk
   >
     <el-form-item
@@ -12,14 +13,20 @@
       :label-width="item.labelWidth"
       :rules="item.rules"
     >
-      <span v-if="item.type === 'text'">{{ formData[item.prop] }}</span>
+      <span
+        class="text-span"
+        v-if="item.type === 'text'"
+        v-html="formData[item.prop]"
+      />
       <el-input
         v-if="item.type === 'input'"
         v-model="formData[item.prop]"
         :placeholder="item.placeholder"
         :disabled="item.disabled"
         @change="item.method?.onChange"
-      ></el-input>
+      >
+        <template v-if="item.append" #append>{{ item.append }}</template>
+      </el-input>
       <el-select
         v-if="item.type === 'select'"
         v-model="formData[item.prop]"
@@ -37,25 +44,30 @@
       <el-date-picker
         v-if="item.type === 'datetime'"
         v-model="formData[item.prop]"
-        type="datetime"
-        placeholder="请选择日期时间"
         :disabled="item.disabled"
-        @change="(item.method as any)?.onChange()"
+        :style="datePickerStyle"
+        :value-format="item.dateFormat"
+        placeholder="请选择日期时间"
+        type="datetime"
+        @change="item.method.onChange()"
       />
       <el-date-picker
         v-if="item.type === 'date'"
-        v-model="item.prop"
-        type="date"
-        placeholder="请选择日期"
+        v-model="formData[item.prop]"
         :disabled="item.disabled"
+        :style="datePickerStyle"
+        :value-format="item.dateFormat"
+        placeholder="请选择日期"
+        type="date"
       />
     </el-form-item>
+    <slot />
   </el-form>
 </template>
 
 <script lang="ts">
-import { defineComponent, onMounted, PropType, ref, toRefs } from "vue"
-import { FormProps } from "/@/components/form/interface"
+import { defineComponent, onMounted, PropType, ref, toRefs, ToRefs } from "vue"
+import { FormProps, Props } from "/@/components/form/interface"
 export default defineComponent({
   name: "MyForm",
   emits: ["submit"],
@@ -75,17 +87,12 @@ export default defineComponent({
     },
     size: {
       type: String,
+      required: false,
+      default: "small",
     },
   },
   setup(props, { emit }) {
     const elForm = ref(null)
-    const { config, formData, formLabelWidth } = toRefs(props)
-
-    onMounted(() => {
-      console.log(config.value)
-      console.log(formData.value)
-      console.log(formLabelWidth.value)
-    })
 
     const methods = {
       resetField: (): void => {
@@ -95,11 +102,19 @@ export default defineComponent({
         ;(elForm.value as any).clearValidate()
       },
       submit: (): void => {
-        emit("submit", formData)
+        emit("submit", props.formData)
+      },
+      validate: (): void => {
+        let isValid
+        ;(elForm.value as any).validate((valid: any) => {})
       },
     }
     return {
       elForm,
+      ...methods,
+      datePickerStyle: {
+        width: "100%",
+      },
     }
   },
 })

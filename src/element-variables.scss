@@ -6,6 +6,9 @@ For example, to overwrite the theme color:
 //$--color-primary: hotpink;
 
 /* icon font path, required */
+@use "sass:math";
+@use "sass:map";
+
 $--btn-padding: 0 10px 0 10px;
 $--btn-width: 50px;
 

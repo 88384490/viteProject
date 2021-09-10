@@ -1,14 +1,28 @@
 <template>
   <div id="movie">
     <div class="button-group">
-      <el-button size="mini" class="add-btn" icon="el-icon-circle-plus-outline
-" @click="handleAddMovieData">
+      <el-button
+        size="mini"
+        class="add-btn"
+        icon="el-icon-circle-plus-outline
+"
+        @click="handleAddMovieData"
+      >
         新增</el-button
       >
-      <el-button size="mini" class="del-btn" icon="el-icon-delete
-">批量删除</el-button>
-      <el-button size="mini" class="enable-btn" icon="el-icon-circle-check">批量启动</el-button>
-      <el-button size="mini" class="disabled-btn" icon="el-icon-circle-close">批量停用</el-button>
+      <el-button
+        size="mini"
+        class="del-btn"
+        icon="el-icon-delete
+"
+        >批量删除</el-button
+      >
+      <el-button size="mini" class="enable-btn" icon="el-icon-circle-check"
+        >批量启动</el-button
+      >
+      <el-button size="mini" class="disabled-btn" icon="el-icon-circle-close"
+        >批量停用</el-button
+      >
     </div>
     <div>
       <MyTable :data="data" :columns="columns">
@@ -63,7 +77,7 @@ const handleAddMovieData = () => {
 
 const handleEditMovieData = (row: MovieTableColumns) => {
   const { id } = row
-  router.push({ path: "/movieForm/", query: { plan: "private" } })
+  router.push({ path: "/movieForm/", query: { id: 9527 } })
 }
 </script>
 

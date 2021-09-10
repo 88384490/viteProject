@@ -6,7 +6,7 @@ declare module "vue-router" {
     hidden?: boolean
     icon?: string
     roles?: string[]
-    search: boolean
+    search?: boolean
   }
 }
 const routers: Partial<IRouterItem>[] = [
@@ -54,13 +54,23 @@ const routers: Partial<IRouterItem>[] = [
   },
   {
     path: "/movieForm",
-    name: "form",
+    name: "movieForm",
     meta: {
       title: "电影表单",
       search: false,
       hidden: true,
     },
     component: () => import("/@/views/Movie/MovieForm.vue"),
+  },
+  {
+    path: "/anchorForm",
+    name: "anchorForm",
+    meta: {
+      title: "主播表单",
+      search: false,
+      hidden: true,
+    },
+    component: () => import("/@/views/Anchor/AnchorForm.vue"),
   },
 ]
 

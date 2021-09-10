@@ -1,4 +1,25 @@
-export interface FormProps {
+export interface Props {
+  formData: any[]
+  config: FormProps[]
+  formLabelWidth?: string | number
+  size?: string
+}
+
+interface InputProps {
+  append?: string
+}
+
+interface DatePickerProps {
+  method?: any | Methods
+  dateFormat?: string
+}
+
+interface SelectProps {
+  options?: OptionsItem[]
+  onChange?: void
+}
+
+export interface FormProps extends InputProps, DatePickerProps, SelectProps {
   prop: string
   label: string
   labelWidth?: string | number
@@ -7,11 +28,8 @@ export interface FormProps {
   error?: string
   slot?: boolean
   type: ETypeItem | string
-  options?: OptionsItem[]
   placeholder?: string
   disabled?: boolean
-  onChange?: void
-  method?: Methods
 }
 export interface OptionsItem {
   label: string
@@ -19,8 +37,8 @@ export interface OptionsItem {
 }
 
 export interface Methods {
-  // eslint-disable-next-line @typescript-eslint/ban-types
-  onChange?: Function
+  onChange?: any
+  onInput?: any
 }
 
 export enum ETypeItem {
@@ -29,4 +47,5 @@ export enum ETypeItem {
   select = "select",
   datetime = "datetime",
   date = "date",
+  slot = "slot",
 }

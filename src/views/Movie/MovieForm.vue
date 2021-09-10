@@ -1,7 +1,13 @@
 <template>
   <div id="movieForm">
-    <span class="title">新增</span>
-    <myForm :config="config" v-model:formData="data" />
+    <span class="title">{{ title }}</span>
+    <myForm
+      class="form"
+      :config="config"
+      v-model:formData="data"
+      ref="myForm"
+    />
+    {{ data }}
     <div class="submit-btn">
       <el-button type="primary" @click="handleSubmit">提交</el-button>
       <el-button type="danger" @click="handleCancel">取消</el-button>
@@ -10,54 +16,52 @@
 </template>
 
 <script setup lang="ts">
-import MyForm from '/@/components/form/Form.vue'
-import { reactive, ref } from "vue"
-import { useStore } from "vuex"
+import MyForm from "/@/components/form/Form.vue"
+import { reactive, ref, onBeforeUnmount, onMounted, watch } from "vue"
 import {
   RouteLocationNormalized,
   Router,
   useRoute,
   useRouter,
 } from "vue-router"
-import { DataItem } from "/@/interface"
-import { FormProps, ETypeItem } from "/@/components/form/interface"
+import { MovieForm } from "/@/interface"
+import { FormProps } from "/@/components/form/interface"
+import { formConfig, formData, log, initData } from "/@/views/Movie/Movie"
+import day from "dayjs"
+import { Store, useStore } from "vuex"
+import { StoreItem } from "/@/store/interface"
 
-const store = useStore()
+const store: Store<StoreItem> = useStore()
 const router: Router = useRouter()
 const route: RouteLocationNormalized = useRoute()
-const form = ref(null)
+const myForm = ref(null)
 
-const data: DataItem = reactive({
-  movieName: "222",
-  type: "action",
+const data: MovieForm = reactive(formData)
+const config: FormProps[] = formConfig
+const title = ref("")
+
+onMounted(() => {
+  if (route.query?.id) {
+    title.value = "编辑"
+  } else {
+    title.value = "新增"
+    data.year = Date.now()
+  }
 })
 
-const config: FormProps[] = [
-  {
-    prop: "movieName",
-    label: "电影名称",
-    type: ETypeItem.input,
-  },
-  {
-    prop: "type",
-    label: "类型",
-    type: ETypeItem.select,
-    options: [
-      {
-        value: "action",
-        label: "动作",
-      },
-    ],
-  },
-]
-
+onBeforeUnmount(() => {
+  console.log("销毁")
+  initData()
+})
 const handleSubmit = (): boolean => {
-  console.log(data)
+  Object.keys(data).forEach((key: any) => {
+    console.log(data[key])
+  })
+  log(store)
   return true
 }
 const handleCancel = (): boolean => {
-  console.log(data)
-  // router.push("/movie")
+  router.push("/movie")
   return true
 }
 </script>

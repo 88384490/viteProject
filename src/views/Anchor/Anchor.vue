@@ -1,8 +1,16 @@
 <template>
   <div id="anchor">
     <div class="button-group">
-      <el-button size="mini" class="add-btn" icon="el-icon-circle-plus-outline">新增</el-button>
-      <el-button size="mini" class="del-btn" icon="el-icon-delete">批量删除</el-button>
+      <el-button
+        size="mini"
+        class="add-btn"
+        icon="el-icon-circle-plus-outline"
+        @click="handleAddAnchorData"
+        >新增</el-button
+      >
+      <el-button size="mini" class="del-btn" icon="el-icon-delete"
+        >批量删除</el-button
+      >
       <el-button
         size="mini"
         class="enable-btn"
@@ -66,7 +74,9 @@ import MyTable from "/@/components/table/Table.vue"
 import { PaginationProp } from "/@/interface"
 import { columns, pagination } from "./Anchor"
 import { AnchorTableColumns } from "/@/interface/anchor"
+import { useRouter } from "vue-router"
 
+const router = useRouter()
 const myTable = ref(null)
 const data: AnchorTableColumns[] = reactive([
   {
@@ -76,7 +86,7 @@ const data: AnchorTableColumns[] = reactive([
     startTime: "2021-8-28",
     fanNumber: 25300,
     chatNumber: 3445,
-    status: true   ,
+    status: true,
     enabled: true,
   },
 ])
@@ -85,9 +95,11 @@ const handleEnable = (boll: boolean, row: any) => {
   row.enable = boll
   row.status = !boll
 }
-
-const batchEnableOrDisable = (value:boolean) => {
+const batchEnableOrDisable = (value: boolean) => {
   console.log(myTable)
+}
+const handleAddAnchorData = () => {
+  router.push("/anchorForm")
 }
 </script>
 
