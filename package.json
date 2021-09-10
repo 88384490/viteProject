@@ -51,6 +51,7 @@
   "prettier": {
     "tabWidth": 2,
     "quotes": true,
-    "semi": false
+    "semi": false,
+    "endOfLine": "lf"
   }
 }
