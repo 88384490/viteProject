@@ -113,7 +113,6 @@ const chartResize = () => {
   fanChart.resize()
   followChart.resize()
   chatChart.resize()
-  initChat2.resize()
 }
 </script>
 <style lang="scss">

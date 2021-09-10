@@ -8,3 +8,12 @@ export interface AnchorTableColumns {
   status: boolean
   enabled: boolean
 }
+
+export interface AnchorForm {
+  anchorName: string
+  huya_Id: string
+  lastStartTime: Date | number | null
+  fanNumber: string
+  chatNumber: string
+  status: string
+}

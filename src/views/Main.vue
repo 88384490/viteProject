@@ -10,7 +10,7 @@
     <el-header>
       <Header />
     </el-header>
-    <el-container direction="horizontal">
+    <el-container class="layout" direction="horizontal" :style="contentStyle">
       <el-aside class="shadow mr-10" width="200px">
         <AsideItem></AsideItem>
       </el-aside>
@@ -25,21 +25,24 @@ import { ElProgress } from "element-plus"
 import Header from "/@/components/header/Header.vue"
 import AsideItem from "/@/components/aside/AsideItem.vue"
 import layoutContent from "/@/components/layout/Content.vue"
-import { computed, onMounted } from "vue"
+import { computed, onMounted, reactive, ref } from "vue"
 import { useStore } from "vuex"
 
-let height = (document.querySelector("#app") as HTMLElement).clientHeight - 20
-
 const store = useStore()
-
 const showProgress = computed(() => store.getters.showProgress)
-
+const contentStyle = reactive({ height: "0px" })
 onMounted(() => {
-  window.addEventListener("resize", () => {
-    height = (document.querySelector("#app") as HTMLElement).clientHeight - 20
-  })
-  console.log(showProgress.value)
+  initElement()
+  window.addEventListener("resize", initElement)
 })
+const initElement = () => {
+  const main = document.getElementsByClassName("main")[0]
+  const header = document.getElementsByClassName("el-header")[0]
+  const contentHeight = main.clientHeight - header.clientHeight - 10
+  Object.assign(contentStyle, {
+    height: contentHeight + "px",
+  })
+}
 </script>
 <style lang="scss" scoped>
 .el-header,
@@ -57,6 +60,9 @@ onMounted(() => {
 }
 .main {
   height: 100%;
+  .layout {
+    min-width: 1280px;
+  }
 }
 .container {
   overflow-y: auto;

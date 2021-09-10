@@ -14,10 +14,13 @@
   .title {
     display: inline-block;
     margin-bottom: 50px;
+    @media screen and (max-width: 1440px) {
+      margin-bottom: 20px;
+    }
   }
   .form {
     width: 700px;
-    text-align: center;
+    margin: auto;
   }
   .submit-btn {
     position: absolute;
