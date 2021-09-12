@@ -7,6 +7,7 @@ import { StoreItem } from "/@/store/interface"
 
 const columns = ref([
   { label: "电影名称", prop: "movieName" },
+  { label: "电影等级", prop: "level" },
   { label: "类型", prop: "type" },
   { label: "上映时间", prop: "year" },
   { label: "得分", prop: "userRating" },
@@ -34,6 +35,18 @@ const formConfig: FormProps[] = [
         value: "love",
         label: "爱情",
       },
+    ],
+  },
+  {
+    prop: "level",
+    label: "电影等级",
+    type: ETypeItem.select,
+    options: [
+      { label: "S", value: "s" },
+      { label: "A", value: "a" },
+      { label: "B", value: "b" },
+      { label: "C", value: "c" },
+      { label: "D", value: "d" },
     ],
   },
   {
@@ -68,13 +81,25 @@ const formConfig: FormProps[] = [
 ]
 
 const formData: MovieForm = {
-  movieName: "",
-  type: "",
+  movieName: "魂断蓝桥",
+  type: "love",
   year: Date.now(),
-  runtime: "",
+  runtime: "150",
   userNumber: "2",
   userRating: "2",
   principalCast: "章子怡",
+  level: "a",
+}
+
+const originData: MovieForm = {
+  movieName: "魂断蓝桥",
+  type: "love",
+  year: Date.now(),
+  runtime: "150",
+  userNumber: "2",
+  userRating: "2",
+  principalCast: "章子怡",
+  level: "a",
 }
 
 const log = (store: Store<StoreItem>) => {
@@ -92,4 +117,4 @@ const initData = () => {
     }
   })
 }
-export { columns, formConfig, formData, log, initData }
+export { columns, formConfig, formData, originData, log, initData }

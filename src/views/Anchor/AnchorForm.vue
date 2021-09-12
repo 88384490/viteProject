@@ -20,7 +20,9 @@ import MyForm from "/@/components/form/Form.vue"
 import { reactive, onBeforeUnmount } from "vue"
 import { config, formData, initData } from "./Anchor"
 import { AnchorForm } from "/@/interface"
+import { useRouter } from "vue-router"
 
+const router = useRouter()
 const data: AnchorForm = reactive<AnchorForm>(formData)
 onBeforeUnmount(() => {
   initData()
@@ -30,7 +32,9 @@ const handleSubmit = () => {
     console.log(key, data[key])
   })
 }
-const handleCancel = () => {}
+const handleCancel = () => {
+  router.push("/anchor")
+}
 </script>
 
 <style lang="scss" scoped>

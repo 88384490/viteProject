@@ -26,16 +26,30 @@
         >批量停用</el-button
       >
     </div>
-    <MyTable :data="data" :columns="columns" ref="myTable">
+    <MyTable
+      :data="data"
+      :columns="columns"
+      ref="myTable"
+      :loading="loading"
+      :batchSelect="callbackSelection"
+    >
       <template #status="{ row }">
         <span v-if="row.status" class="enable-status">{{ row.status }}</span>
         <span v-else class="disabled-status">{{ row.status }}</span></template
       >
       <template #action="{ row }">
-        <el-button class="del-table-btn" size="mini" type="text" @click="clear"
+        <el-button
+          class="del-table-btn"
+          size="mini"
+          type="text"
+          @click="handleDelAnchorData(row)"
           >删除
         </el-button>
-        <el-button class="edit-table-btn" size="mini" type="text"
+        <el-button
+          class="edit-table-btn"
+          size="mini"
+          type="text"
+          @click="handleEditAnchorData(row)"
           >编辑</el-button
         >
         <el-button
@@ -69,12 +83,13 @@
 </template>
 
 <script setup lang="ts">
-import { ref, reactive } from "vue"
+import { ref, reactive, onMounted } from "vue"
 import MyTable from "/@/components/table/Table.vue"
 import { PaginationProp } from "/@/interface"
 import { columns, pagination } from "./Anchor"
 import { AnchorTableColumns } from "/@/interface/anchor"
 import { useRouter } from "vue-router"
+import { log } from "console"
 
 const router = useRouter()
 const myTable = ref(null)
@@ -89,18 +104,50 @@ const data: AnchorTableColumns[] = reactive([
     status: true,
     enabled: true,
   },
+  {
+    id: "2",
+    anchorName: "GR冬",
+    huya_Id: "2222",
+    startTime: "2021-8-28",
+    fanNumber: 25300,
+    chatNumber: 3445,
+    status: true,
+    enabled: true,
+  },
 ])
+let selections: AnchorTableColumns[] = reactive([])
+let loading = ref(false)
 
 const handleEnable = (boll: boolean, row: any) => {
   row.enable = boll
   row.status = !boll
 }
 const batchEnableOrDisable = (value: boolean) => {
-  console.log(myTable)
+  loading.value = !loading.value
 }
 const handleAddAnchorData = () => {
   router.push("/anchorForm")
 }
+const handleEditAnchorData = (row: AnchorTableColumns) => {
+  console.log(row)
+  router.push({ path: "/anchorForm", query: { id: 2 } })
+}
+const handleDelAnchorData = (row: AnchorTableColumns) => {
+  console.log(row)
+}
+const callbackSelection = (data: []) => {
+  console.log(data)
+  selections = data
+}
+
+const asyncRun = (func: any) => {
+  return new Promise((resolve) => {
+    setTimeout(() => resolve(func), 1500)
+  })
+}
+onMounted(async () => {
+ 
+})
 </script>
 
 <style lang="scss" scoped>

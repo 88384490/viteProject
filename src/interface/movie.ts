@@ -2,6 +2,7 @@ export interface MovieTableColumns {
   id?: string
   movieName: string
   type: string
+  level: string
   year: string
   runtime: number
   userRating: number
@@ -12,6 +13,7 @@ export interface MovieTableColumns {
 export interface MovieForm {
   movieName: string
   type: string
+  level: string
   year: Date | null | number
   runtime: string
   userRating: string

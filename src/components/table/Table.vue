@@ -3,10 +3,12 @@
     ref="elTable"
     :border="true"
     :data="data"
+    v-loading="loading"
     empty-text="暂无数据"
     height="height"
     style="width: 100%"
     size="mini"
+    @selection-change="handleSelect"
   >
     <el-table-column
       v-if="isMultiSel"
@@ -41,11 +43,11 @@
   </div>
 </template>
 <script lang="ts">
-import { defineComponent, PropType, ref, toRefs } from "vue"
+import { defineComponent, PropType, ref, reactive, toRefs } from "vue"
 
 export default defineComponent({
   name: "MyTable",
-  emits: ["clearSel"],
+  emits: ["clearSel", "batchSelect"],
   props: {
     data: {
       type: Array as PropType<any[]>,
@@ -67,7 +69,7 @@ export default defineComponent({
     loading: {
       type: Boolean,
       required: false,
-      default: true,
+      default: false,
     },
     height: { type: Number, required: false },
   },
@@ -84,6 +86,7 @@ export default defineComponent({
       tableHeaderStyle: {
         backgroundColor: "#6c757d",
       },
+      selectData: [],
     }
     const methods = {
       clearSelection: (): void => {
@@ -91,6 +94,10 @@ export default defineComponent({
       },
       batchSelectAll: (): void => {
         ;(elTable.value as any).clearSelection()
+      },
+      handleSelect: (selection: any): void => {
+        Object.assign(_data, { selectData: selection })
+        emit("batchSelect", _data.selectData)
       },
     }
     return { ...methods, elTable, ...propItem, ..._data }

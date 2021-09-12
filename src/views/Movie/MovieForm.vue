@@ -17,7 +17,7 @@
 
 <script setup lang="ts">
 import MyForm from "/@/components/form/Form.vue"
-import { reactive, ref, onBeforeUnmount, onMounted, watch } from "vue"
+import { reactive, ref, onBeforeUnmount, onMounted } from "vue"
 import {
   RouteLocationNormalized,
   Router,
@@ -26,7 +26,13 @@ import {
 } from "vue-router"
 import { MovieForm } from "/@/interface"
 import { FormProps } from "/@/components/form/interface"
-import { formConfig, formData, log, initData } from "/@/views/Movie/Movie"
+import {
+  formConfig,
+  formData,
+  originData,
+  log,
+  initData,
+} from "/@/views/Movie/Movie"
 import day from "dayjs"
 import { Store, useStore } from "vuex"
 import { StoreItem } from "/@/store/interface"
@@ -43,6 +49,7 @@ const title = ref("")
 onMounted(() => {
   if (route.query?.id) {
     title.value = "编辑"
+    Object.assign(data, originData)
   } else {
     title.value = "新增"
     data.year = Date.now()

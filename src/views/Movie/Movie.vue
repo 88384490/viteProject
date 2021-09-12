@@ -59,6 +59,7 @@ const data: MovieTableColumns[] = reactive([
   {
     movieName: "test",
     type: "test",
+    level: "S",
     year: "test",
     runtime: 167,
     userRating: 2,

@@ -10,6 +10,7 @@ const columns = ref([
     prop: "startTime",
   },
   { label: "粉丝数量", prop: "fanNumber" },
+  { label: "弹幕数量", prop: "chatNumber" },
   { label: "状态", slot: true, name: "status" },
   {
     label: "操作",

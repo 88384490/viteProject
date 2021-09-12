@@ -46,8 +46,7 @@
     "vue-tsc": "^0.3.0",
     "yorkie": "^2.0.0"
   },
-  "gitHooks": {
-   },
+  "gitHooks": {},
   "prettier": {
     "tabWidth": 2,
     "quotes": true,
