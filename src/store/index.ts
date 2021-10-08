@@ -6,6 +6,7 @@ const store: StoreOptions<StoreItem> = {
     movieData: {
       movieName: "",
       type: "",
+      level: "",
       year: "",
       runtime: "",
       userNumber: "",

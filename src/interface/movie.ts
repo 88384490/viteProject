@@ -14,7 +14,7 @@ export interface MovieForm {
   movieName: string
   type: string
   level: string
-  year: Date | null | number
+  year: string
   runtime: string
   userRating: string
   userNumber: string

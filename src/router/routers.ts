@@ -31,17 +31,17 @@ const routers: Partial<IRouterItem>[] = [
     },
     component: () => import("/@/views/Anchor/Anchor.vue"),
   },
-  {
-    path: "/user",
-    name: "User",
-    meta: {
-      title: "用户管理",
-      icon: "el-icon-user-solid",
-      roles: ["ADMINISTRATOR", "USER_ADMINISTRATOR"],
-      search: false,
-    },
-    component: () => import("/@/views/User.vue"),
-  },
+  // {
+  //   path: "/user",
+  //   name: "User",
+  //   meta: {
+  //     title: "用户管理",
+  //     icon: "el-icon-user-solid",
+  //     roles: ["ADMINISTRATOR", "USER_ADMINISTRATOR"],
+  //     search: false,
+  //   },
+  //   component: () => import("/@/views/User.vue"),
+  // },
   {
     path: "/movie",
     name: "movie",

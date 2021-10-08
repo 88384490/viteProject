@@ -36,6 +36,7 @@ import {
 import day from "dayjs"
 import { Store, useStore } from "vuex"
 import { StoreItem } from "/@/store/interface"
+import { query } from "/@/api"
 
 const store: Store<StoreItem> = useStore()
 const router: Router = useRouter()
@@ -61,10 +62,11 @@ onBeforeUnmount(() => {
   initData()
 })
 const handleSubmit = (): boolean => {
-  Object.keys(data).forEach((key: any) => {
-    console.log(data[key])
-  })
-  log(store)
+  // Object.keys(data).forEach((key: any) => {
+  //   console.log(data[key])
+  // })
+  // log(store)
+  query()
   return true
 }
 const handleCancel = (): boolean => {
