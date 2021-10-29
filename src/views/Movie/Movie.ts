@@ -23,7 +23,7 @@ const formConfig: FormProps[] = [
     type: ETypeItem.input,
   },
   {
-    prop: "type",
+    prop: "movieType",
     label: "类型",
     type: ETypeItem.select,
     options: [
@@ -73,7 +73,7 @@ const formConfig: FormProps[] = [
     disabled: true,
   },
   {
-    prop: "principalCsat",
+    prop: "principalCast",
     label: "主演",
     type: ETypeItem.input,
     disabled: true,
@@ -82,7 +82,7 @@ const formConfig: FormProps[] = [
 
 const formData: MovieForm = {
   movieName: "魂断蓝桥",
-  type: "love",
+  movieType: "love",
   year: Date.now(),
   runtime: "150",
   userNumber: "2",
@@ -93,7 +93,7 @@ const formData: MovieForm = {
 
 const originData: MovieForm = {
   movieName: "魂断蓝桥",
-  type: "love",
+  movieType: "love",
   year: Date.now(),
   runtime: "150",
   userNumber: "2",

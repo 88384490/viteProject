@@ -23,6 +23,14 @@
       <el-button size="mini" class="disabled-btn" icon="el-icon-circle-close"
         >批量停用</el-button
       >
+      <el-button
+        size="mini"
+        class="disabled-btn"
+        icon="el-icon-circle-close"
+        @click="handleQueryData"
+      >
+        查询
+      </el-button>
     </div>
     <div>
       <MyTable :data="data" :columns="columns">
@@ -46,13 +54,14 @@
 <script setup lang="ts">
 import MyTable from "/@/components/table/Table.vue"
 import MyModal from "/@/components/modal/Dialog.vue"
-import { CirclePlus } from "@element-plus/icons"
-import { PaginationProp } from "/@/interface"
 import { columns } from "/@/views/Movie/Movie"
 import { MovieTableColumns } from "/@/interface/movie"
-import { reactive, ref } from "vue"
+import { reactive } from "vue"
 import { Router, useRouter } from "vue-router"
+import { useStore } from "vuex"
+import { EActionFun } from "/@/store/interface"
 
+const store = useStore()
 const router: Router = useRouter()
 
 const data: MovieTableColumns[] = reactive([
@@ -79,6 +88,10 @@ const handleAddMovieData = () => {
 const handleEditMovieData = (row: MovieTableColumns) => {
   const { id } = row
   router.push({ path: "/movieForm/", query: { id: 9527 } })
+}
+
+const handleQueryData = () => {
+  store.dispatch(EActionFun.QUERY_MOVIE)
 }
 </script>
 

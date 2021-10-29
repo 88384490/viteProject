@@ -16,6 +16,8 @@ class HttpRequest {
       headers: {
         "x-csrf-token": ctoken,
       },
+      timeout: 6000,
+      timeoutErrorMessage: "请求超时",
     }
     return config
   }
@@ -33,14 +35,6 @@ class HttpRequest {
     // 响应拦截
     instance.interceptors.response.use(
       (res: AxiosResponse<any>) => {
-        // const {
-        //     data,
-        //     status
-        // } = res
-        // return {
-        //     data,
-        //     status
-        // }
         return res
       },
       (error: any) => {

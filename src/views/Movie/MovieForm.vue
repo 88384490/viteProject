@@ -33,40 +33,42 @@ import {
   log,
   initData,
 } from "/@/views/Movie/Movie"
-import day from "dayjs"
 import { Store, useStore } from "vuex"
-import { StoreItem } from "/@/store/interface"
-import { query } from "/@/api"
+import { EActionFun, StoreItem } from "/@/store/interface"
 
 const store: Store<StoreItem> = useStore()
 const router: Router = useRouter()
 const route: RouteLocationNormalized = useRoute()
 const myForm = ref(null)
 
-const data: MovieForm = reactive(formData)
+const data: MovieForm = reactive({
+  movieName: "魂断蓝桥",
+  movieType: "action",
+  year: Date.now(),
+  runtime: "150",
+  userNumber: "2",
+  userRating: "2",
+  principalCast: "章子怡",
+  level: "a",
+})
 const config: FormProps[] = formConfig
 const title = ref("")
 
 onMounted(() => {
   if (route.query?.id) {
     title.value = "编辑"
-    Object.assign(data, originData)
   } else {
     title.value = "新增"
-    data.year = Date.now()
+    Object.assign(data, formData)
+    console.log("movie data", data, originData)
   }
 })
 
 onBeforeUnmount(() => {
   console.log("销毁")
-  initData()
 })
 const handleSubmit = (): boolean => {
-  // Object.keys(data).forEach((key: any) => {
-  //   console.log(data[key])
-  // })
-  // log(store)
-  query()
+  store.dispatch(EActionFun.ADD_MOVIE, data)
   return true
 }
 const handleCancel = (): boolean => {

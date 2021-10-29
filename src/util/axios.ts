@@ -6,7 +6,7 @@ let loading: { close(): void }
 // 创建 axios 实例
 const request = axios.create({
   // API 请求的默认前缀
-  baseURL: import.meta.env.VITE_API_URL as string | undefined,
+  baseURL: "/api/v1" as string | undefined,
   timeout: 60000, // 请求超时时间
 })
 
@@ -36,12 +36,12 @@ request.interceptors.request.use((config) => {
 }, errorHandler)
 
 // response interceptor
-request.interceptors.response.use((response: AxiosResponse<IResponse>) => {
-  const { data } = response
+request.interceptors.response.use((response: AxiosResponse<any>) => {
+  const { data, status } = response
   loading.close()
-  if (data.Code !== 200) {
+  if (status !== 200) {
     let title = "请求失败"
-    if (data.Code === 401) {
+    if (status === 401) {
       title = "身份认证失败"
     }
     ElNotification({
@@ -51,7 +51,7 @@ request.interceptors.response.use((response: AxiosResponse<IResponse>) => {
     })
     return Promise.reject(new Error(data.Msg || "Error"))
   }
-  return response
+  return response.data
 }, errorHandler)
 
 export default request

@@ -1,3 +1,6 @@
+import { ActionContext, Commit, Dispatch } from "vuex"
+import { StoreItem } from "/@/store/interface"
+
 export * from "./echart"
 export * from "./pagination"
 export * from "./modal"
@@ -25,5 +28,11 @@ declare global {
     VITE_APP_TITLE: string
     VITE_PORT: number
     VITE_PROXY: string
+  }
+
+  interface Context {
+    dispatch: Dispatch
+    commit: Commit
+    state: StoreItem
   }
 }
