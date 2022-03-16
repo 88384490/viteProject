@@ -42,7 +42,7 @@ export default defineComponent({
   },
   setup(props) {
     const router = useRouter()
-    const route = useRoute() as IRouterItem
+    const route = useRoute()
     const enableSearch = computed(() => route.meta?.search)
     const title = computed(() => route.meta?.title)
     const reload = () => {
